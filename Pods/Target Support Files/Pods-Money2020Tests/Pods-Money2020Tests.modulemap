@@ -1,0 +1,6 @@
+framework module Pods_Money2020Tests {
+  umbrella header "Pods-Money2020Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

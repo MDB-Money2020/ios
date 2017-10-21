@@ -1,0 +1,873 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		017A03E8BBA83809E2FA7E71 /* Pods_Money2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2DA16792506DB7A304D12E6 /* Pods_Money2020.framework */; };
+		167E02411EF8EAF12967D0D2 /* Pods_Money2020Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385FD2FF7EEBC3AB81CBCA9A /* Pods_Money2020Tests.framework */; };
+		16845C3C1F9BC4EE00CFD379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16845C3B1F9BC4EE00CFD379 /* AppDelegate.swift */; };
+		16845C411F9BC4EE00CFD379 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16845C3F1F9BC4EE00CFD379 /* Main.storyboard */; };
+		16845C441F9BC4EE00CFD379 /* Money2020.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 16845C421F9BC4EE00CFD379 /* Money2020.xcdatamodeld */; };
+		16845C461F9BC4EE00CFD379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16845C451F9BC4EE00CFD379 /* Assets.xcassets */; };
+		16845C491F9BC4EE00CFD379 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16845C471F9BC4EE00CFD379 /* LaunchScreen.storyboard */; };
+		16845C541F9BC4EF00CFD379 /* Money2020Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16845C531F9BC4EF00CFD379 /* Money2020Tests.swift */; };
+		16845C5F1F9BC4EF00CFD379 /* Money2020UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16845C5E1F9BC4EF00CFD379 /* Money2020UITests.swift */; };
+		16845C701F9BC69200CFD379 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16845C6F1F9BC69200CFD379 /* MenuItem.swift */; };
+		16845C721F9BC69A00CFD379 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16845C711F9BC69A00CFD379 /* User.swift */; };
+		16845C741F9BC6A100CFD379 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16845C731F9BC6A100CFD379 /* Restaurant.swift */; };
+		608916CDDF3DE0DD422F7D9D /* Pods_Money2020UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7737A0D3D5BFFD886B15CA15 /* Pods_Money2020UITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		16845C501F9BC4EF00CFD379 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16845C301F9BC4EE00CFD379 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16845C371F9BC4EE00CFD379;
+			remoteInfo = Money2020;
+		};
+		16845C5B1F9BC4EF00CFD379 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16845C301F9BC4EE00CFD379 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16845C371F9BC4EE00CFD379;
+			remoteInfo = Money2020;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		16845C381F9BC4EE00CFD379 /* Money2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money2020.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16845C3B1F9BC4EE00CFD379 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		16845C401F9BC4EE00CFD379 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		16845C431F9BC4EE00CFD379 /* Money2020.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Money2020.xcdatamodel; sourceTree = "<group>"; };
+		16845C451F9BC4EE00CFD379 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		16845C481F9BC4EE00CFD379 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		16845C4A1F9BC4EE00CFD379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16845C4F1F9BC4EF00CFD379 /* Money2020Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Money2020Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16845C531F9BC4EF00CFD379 /* Money2020Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money2020Tests.swift; sourceTree = "<group>"; };
+		16845C551F9BC4EF00CFD379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16845C5A1F9BC4EF00CFD379 /* Money2020UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Money2020UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16845C5E1F9BC4EF00CFD379 /* Money2020UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money2020UITests.swift; sourceTree = "<group>"; };
+		16845C601F9BC4EF00CFD379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16845C6F1F9BC69200CFD379 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		16845C711F9BC69A00CFD379 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		16845C731F9BC6A100CFD379 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		16845C771F9BC85400CFD379 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		385FD2FF7EEBC3AB81CBCA9A /* Pods_Money2020Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Money2020Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45A60F45CBDF8E2E9A84EEB1 /* Pods-Money2020Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money2020Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Money2020Tests/Pods-Money2020Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		475AEE5BDBD527CF5F2425C1 /* Pods-Money2020UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money2020UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Money2020UITests/Pods-Money2020UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7737A0D3D5BFFD886B15CA15 /* Pods_Money2020UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Money2020UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		999B47491B70FCB84767B5D2 /* Pods-Money2020UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money2020UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Money2020UITests/Pods-Money2020UITests.release.xcconfig"; sourceTree = "<group>"; };
+		C999FEF6AF5E0125EE0AEDEC /* Pods-Money2020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money2020.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Money2020/Pods-Money2020.debug.xcconfig"; sourceTree = "<group>"; };
+		C9FC55B2DDE521B35B026C16 /* Pods-Money2020.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money2020.release.xcconfig"; path = "Pods/Target Support Files/Pods-Money2020/Pods-Money2020.release.xcconfig"; sourceTree = "<group>"; };
+		F2DA16792506DB7A304D12E6 /* Pods_Money2020.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Money2020.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD90791BEB84F44C66B67AE4 /* Pods-Money2020Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money2020Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Money2020Tests/Pods-Money2020Tests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16845C351F9BC4EE00CFD379 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				017A03E8BBA83809E2FA7E71 /* Pods_Money2020.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16845C4C1F9BC4EF00CFD379 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				167E02411EF8EAF12967D0D2 /* Pods_Money2020Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16845C571F9BC4EF00CFD379 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				608916CDDF3DE0DD422F7D9D /* Pods_Money2020UITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16845C2F1F9BC4EE00CFD379 = {
+			isa = PBXGroup;
+			children = (
+				16845C3A1F9BC4EE00CFD379 /* Money2020 */,
+				16845C521F9BC4EF00CFD379 /* Money2020Tests */,
+				16845C5D1F9BC4EF00CFD379 /* Money2020UITests */,
+				16845C391F9BC4EE00CFD379 /* Products */,
+				C4A1D2F2D0D5BBF0F7B703C6 /* Pods */,
+				4489698CA9F3EF5E09F6DCF5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		16845C391F9BC4EE00CFD379 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16845C381F9BC4EE00CFD379 /* Money2020.app */,
+				16845C4F1F9BC4EF00CFD379 /* Money2020Tests.xctest */,
+				16845C5A1F9BC4EF00CFD379 /* Money2020UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16845C3A1F9BC4EE00CFD379 /* Money2020 */ = {
+			isa = PBXGroup;
+			children = (
+				16845C761F9BC74400CFD379 /* Helpers */,
+				16845C751F9BC73F00CFD379 /* Clients */,
+				16845C6E1F9BC66200CFD379 /* Controllers */,
+				16845C6D1F9BC65C00CFD379 /* Views */,
+				16845C6C1F9BC65600CFD379 /* Models */,
+				16845C3B1F9BC4EE00CFD379 /* AppDelegate.swift */,
+				16845C771F9BC85400CFD379 /* GoogleService-Info.plist */,
+				16845C3F1F9BC4EE00CFD379 /* Main.storyboard */,
+				16845C451F9BC4EE00CFD379 /* Assets.xcassets */,
+				16845C471F9BC4EE00CFD379 /* LaunchScreen.storyboard */,
+				16845C4A1F9BC4EE00CFD379 /* Info.plist */,
+				16845C421F9BC4EE00CFD379 /* Money2020.xcdatamodeld */,
+			);
+			path = Money2020;
+			sourceTree = "<group>";
+		};
+		16845C521F9BC4EF00CFD379 /* Money2020Tests */ = {
+			isa = PBXGroup;
+			children = (
+				16845C531F9BC4EF00CFD379 /* Money2020Tests.swift */,
+				16845C551F9BC4EF00CFD379 /* Info.plist */,
+			);
+			path = Money2020Tests;
+			sourceTree = "<group>";
+		};
+		16845C5D1F9BC4EF00CFD379 /* Money2020UITests */ = {
+			isa = PBXGroup;
+			children = (
+				16845C5E1F9BC4EF00CFD379 /* Money2020UITests.swift */,
+				16845C601F9BC4EF00CFD379 /* Info.plist */,
+			);
+			path = Money2020UITests;
+			sourceTree = "<group>";
+		};
+		16845C6C1F9BC65600CFD379 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				16845C6F1F9BC69200CFD379 /* MenuItem.swift */,
+				16845C731F9BC6A100CFD379 /* Restaurant.swift */,
+				16845C711F9BC69A00CFD379 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		16845C6D1F9BC65C00CFD379 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		16845C6E1F9BC66200CFD379 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		16845C751F9BC73F00CFD379 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		16845C761F9BC74400CFD379 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4489698CA9F3EF5E09F6DCF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2DA16792506DB7A304D12E6 /* Pods_Money2020.framework */,
+				385FD2FF7EEBC3AB81CBCA9A /* Pods_Money2020Tests.framework */,
+				7737A0D3D5BFFD886B15CA15 /* Pods_Money2020UITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4A1D2F2D0D5BBF0F7B703C6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C999FEF6AF5E0125EE0AEDEC /* Pods-Money2020.debug.xcconfig */,
+				C9FC55B2DDE521B35B026C16 /* Pods-Money2020.release.xcconfig */,
+				45A60F45CBDF8E2E9A84EEB1 /* Pods-Money2020Tests.debug.xcconfig */,
+				FD90791BEB84F44C66B67AE4 /* Pods-Money2020Tests.release.xcconfig */,
+				475AEE5BDBD527CF5F2425C1 /* Pods-Money2020UITests.debug.xcconfig */,
+				999B47491B70FCB84767B5D2 /* Pods-Money2020UITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		16845C371F9BC4EE00CFD379 /* Money2020 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16845C631F9BC4EF00CFD379 /* Build configuration list for PBXNativeTarget "Money2020" */;
+			buildPhases = (
+				A6FAEE9F48414AA6CA46B37A /* [CP] Check Pods Manifest.lock */,
+				16845C341F9BC4EE00CFD379 /* Sources */,
+				16845C351F9BC4EE00CFD379 /* Frameworks */,
+				16845C361F9BC4EE00CFD379 /* Resources */,
+				9C18F1DBBE213AE9A123C1B4 /* [CP] Embed Pods Frameworks */,
+				5A5C37127C4FB74F679CBBD9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Money2020;
+			productName = Money2020;
+			productReference = 16845C381F9BC4EE00CFD379 /* Money2020.app */;
+			productType = "com.apple.product-type.application";
+		};
+		16845C4E1F9BC4EF00CFD379 /* Money2020Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16845C661F9BC4EF00CFD379 /* Build configuration list for PBXNativeTarget "Money2020Tests" */;
+			buildPhases = (
+				ED9569A44FF407CB5501E4FC /* [CP] Check Pods Manifest.lock */,
+				16845C4B1F9BC4EF00CFD379 /* Sources */,
+				16845C4C1F9BC4EF00CFD379 /* Frameworks */,
+				16845C4D1F9BC4EF00CFD379 /* Resources */,
+				2D3BFAAC610C95931B6215F3 /* [CP] Embed Pods Frameworks */,
+				ACD7154A34DCD27CA2123C14 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16845C511F9BC4EF00CFD379 /* PBXTargetDependency */,
+			);
+			name = Money2020Tests;
+			productName = Money2020Tests;
+			productReference = 16845C4F1F9BC4EF00CFD379 /* Money2020Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		16845C591F9BC4EF00CFD379 /* Money2020UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16845C691F9BC4EF00CFD379 /* Build configuration list for PBXNativeTarget "Money2020UITests" */;
+			buildPhases = (
+				286536248269C695AD3579C9 /* [CP] Check Pods Manifest.lock */,
+				16845C561F9BC4EF00CFD379 /* Sources */,
+				16845C571F9BC4EF00CFD379 /* Frameworks */,
+				16845C581F9BC4EF00CFD379 /* Resources */,
+				B7D65519218745BE7357C5FA /* [CP] Embed Pods Frameworks */,
+				6931CD0EE2E8D9CE39A75E0B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16845C5C1F9BC4EF00CFD379 /* PBXTargetDependency */,
+			);
+			name = Money2020UITests;
+			productName = Money2020UITests;
+			productReference = 16845C5A1F9BC4EF00CFD379 /* Money2020UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16845C301F9BC4EE00CFD379 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Akkshay Khoslaa";
+				TargetAttributes = {
+					16845C371F9BC4EE00CFD379 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					16845C4E1F9BC4EF00CFD379 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 16845C371F9BC4EE00CFD379;
+					};
+					16845C591F9BC4EF00CFD379 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 16845C371F9BC4EE00CFD379;
+					};
+				};
+			};
+			buildConfigurationList = 16845C331F9BC4EE00CFD379 /* Build configuration list for PBXProject "Money2020" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 16845C2F1F9BC4EE00CFD379;
+			productRefGroup = 16845C391F9BC4EE00CFD379 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16845C371F9BC4EE00CFD379 /* Money2020 */,
+				16845C4E1F9BC4EF00CFD379 /* Money2020Tests */,
+				16845C591F9BC4EF00CFD379 /* Money2020UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		16845C361F9BC4EE00CFD379 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16845C491F9BC4EE00CFD379 /* LaunchScreen.storyboard in Resources */,
+				16845C461F9BC4EE00CFD379 /* Assets.xcassets in Resources */,
+				16845C411F9BC4EE00CFD379 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16845C4D1F9BC4EF00CFD379 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16845C581F9BC4EF00CFD379 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		286536248269C695AD3579C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Money2020UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D3BFAAC610C95931B6215F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Money2020Tests/Pods-Money2020Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A5C37127C4FB74F679CBBD9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Money2020/Pods-Money2020-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6931CD0EE2E8D9CE39A75E0B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Money2020UITests/Pods-Money2020UITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C18F1DBBE213AE9A123C1B4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Money2020/Pods-Money2020-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AMTumblrHud/AMTumblrHud.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BBBadgeBarButtonItem/BBBadgeBarButtonItem.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/DGActivityIndicatorView/DGActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/HanekeSwift/Haneke.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/KILabel/KILabel.framework",
+				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Sync/Sync.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AMTumblrHud.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BBBadgeBarButtonItem.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Haneke.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KILabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sync.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Money2020/Pods-Money2020-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6FAEE9F48414AA6CA46B37A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Money2020-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACD7154A34DCD27CA2123C14 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Money2020Tests/Pods-Money2020Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7D65519218745BE7357C5FA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Money2020UITests/Pods-Money2020UITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED9569A44FF407CB5501E4FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Money2020Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16845C341F9BC4EE00CFD379 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16845C701F9BC69200CFD379 /* MenuItem.swift in Sources */,
+				16845C741F9BC6A100CFD379 /* Restaurant.swift in Sources */,
+				16845C441F9BC4EE00CFD379 /* Money2020.xcdatamodeld in Sources */,
+				16845C721F9BC69A00CFD379 /* User.swift in Sources */,
+				16845C3C1F9BC4EE00CFD379 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16845C4B1F9BC4EF00CFD379 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16845C541F9BC4EF00CFD379 /* Money2020Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16845C561F9BC4EF00CFD379 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16845C5F1F9BC4EF00CFD379 /* Money2020UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		16845C511F9BC4EF00CFD379 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16845C371F9BC4EE00CFD379 /* Money2020 */;
+			targetProxy = 16845C501F9BC4EF00CFD379 /* PBXContainerItemProxy */;
+		};
+		16845C5C1F9BC4EF00CFD379 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16845C371F9BC4EE00CFD379 /* Money2020 */;
+			targetProxy = 16845C5B1F9BC4EF00CFD379 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		16845C3F1F9BC4EE00CFD379 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16845C401F9BC4EE00CFD379 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		16845C471F9BC4EE00CFD379 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16845C481F9BC4EE00CFD379 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		16845C611F9BC4EF00CFD379 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		16845C621F9BC4EF00CFD379 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16845C641F9BC4EF00CFD379 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C999FEF6AF5E0125EE0AEDEC /* Pods-Money2020.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4X45GCW87V;
+				INFOPLIST_FILE = Money2020/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.khoslaa.Money2020;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		16845C651F9BC4EF00CFD379 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9FC55B2DDE521B35B026C16 /* Pods-Money2020.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4X45GCW87V;
+				INFOPLIST_FILE = Money2020/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.khoslaa.Money2020;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		16845C671F9BC4EF00CFD379 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45A60F45CBDF8E2E9A84EEB1 /* Pods-Money2020Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4X45GCW87V;
+				INFOPLIST_FILE = Money2020Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.khoslaa.Money2020Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Money2020.app/Money2020";
+			};
+			name = Debug;
+		};
+		16845C681F9BC4EF00CFD379 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD90791BEB84F44C66B67AE4 /* Pods-Money2020Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4X45GCW87V;
+				INFOPLIST_FILE = Money2020Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.khoslaa.Money2020Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Money2020.app/Money2020";
+			};
+			name = Release;
+		};
+		16845C6A1F9BC4EF00CFD379 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 475AEE5BDBD527CF5F2425C1 /* Pods-Money2020UITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4X45GCW87V;
+				INFOPLIST_FILE = Money2020UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.khoslaa.Money2020UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Money2020;
+			};
+			name = Debug;
+		};
+		16845C6B1F9BC4EF00CFD379 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 999B47491B70FCB84767B5D2 /* Pods-Money2020UITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4X45GCW87V;
+				INFOPLIST_FILE = Money2020UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.khoslaa.Money2020UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Money2020;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16845C331F9BC4EE00CFD379 /* Build configuration list for PBXProject "Money2020" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16845C611F9BC4EF00CFD379 /* Debug */,
+				16845C621F9BC4EF00CFD379 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16845C631F9BC4EF00CFD379 /* Build configuration list for PBXNativeTarget "Money2020" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16845C641F9BC4EF00CFD379 /* Debug */,
+				16845C651F9BC4EF00CFD379 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16845C661F9BC4EF00CFD379 /* Build configuration list for PBXNativeTarget "Money2020Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16845C671F9BC4EF00CFD379 /* Debug */,
+				16845C681F9BC4EF00CFD379 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16845C691F9BC4EF00CFD379 /* Build configuration list for PBXNativeTarget "Money2020UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16845C6A1F9BC4EF00CFD379 /* Debug */,
+				16845C6B1F9BC4EF00CFD379 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		16845C421F9BC4EE00CFD379 /* Money2020.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				16845C431F9BC4EE00CFD379 /* Money2020.xcdatamodel */,
+			);
+			currentVersion = 16845C431F9BC4EE00CFD379 /* Money2020.xcdatamodel */;
+			path = Money2020.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 16845C301F9BC4EE00CFD379 /* Project object */;
+}
