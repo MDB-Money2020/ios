@@ -172,31 +172,6 @@ class InstantAPIClient {
         }
     }
     
-    static func getMenuSuggestions(userId: String, restaurantId: String) -> Promise<[MenuItem]> {
-        return Promise { fulfill, reject in
-            after(interval: 10).then { _ -> Void in
-                reject(RequestTimedOutError.requestTimedOut)
-            }
-            let endpoint = Constants.apiUrl + "menuItems?userId=\(userId)&restaurantId=\(restaurantId)&suggested=true"
-            Alamofire.request(endpoint).responseJSON().then { response -> Void in
-                let json = JSON(object: response)
-                log.info("Response: \(json.description)")
-                if let results = json["result"].array {
-                    var items = [MenuItem]()
-                    for result in results {
-                        if let item = MenuItem(JSON: result.dictionaryObject!) {
-                            items.append(item)
-                        }
-                    }
-                    fulfill(items)
-                }
-                }.catch { error in
-                    log.error(error.localizedDescription)
-                    reject(error)
-            }
-        }
-    }
-    
     static func placeOrder(userId: String, restaurantId: String, instructions: String, orderItems: [String: Any]) -> Promise<Order> {
         return Promise { fulfill, reject in
             after(interval: 10).then { _ -> Void in
