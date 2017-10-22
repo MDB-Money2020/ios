@@ -25,8 +25,10 @@ class FaceIdHelper {
         return Promise<User> { fulfill, reject in
             firstly {
                 return uploadImage(image: image)
-            }.then { url -> Void in
+            }.then { url -> Promise<User> in
                 return InstantAPIClient.getUserByFaceId(imageUrl: url)
+            }.then{ user -> Void in
+                fulfill(user)
             }.catch(policy: .allErrors) { error in
                 log.error(error.localizedDescription)
                 reject(error)
