@@ -32,8 +32,7 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.awakeFromNib()
-            
-            cell.cardInfoLabel.text = "Visa Card Connected"
+
             
             return cell
             
@@ -100,7 +99,7 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 2 {
             return 120
         } else if indexPath.section == 0 {
-            return 160
+            return 600
         } else if indexPath.section == 1 {
             return 120
         } else if indexPath.section == 3 {
