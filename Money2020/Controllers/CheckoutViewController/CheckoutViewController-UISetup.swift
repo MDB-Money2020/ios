@@ -28,8 +28,9 @@ extension CheckoutViewController {
         tableView.register(CheckoutTotalTableViewCell.self, forCellReuseIdentifier: "totalCell")
         tableView.register(CheckoutCardTableViewCell.self, forCellReuseIdentifier: "cardInfoCell")
         tableView.register(CheckoutCommentsTableViewCell.self, forCellReuseIdentifier: "commentsCell")
+        tableView.register(CheckoutOrderDetailsTitleTableViewCell.self, forCellReuseIdentifier: "orderDetailsCell")
         tableView.backgroundColor = .white
-        tableView.separatorStyle = .singleLine
+        tableView.separatorStyle = .none
         tableView.separatorColor = UIColor(hex: "#EEEFF0")
         tableView.allowsSelection = true
         view.addSubview(tableView)
@@ -38,11 +39,11 @@ extension CheckoutViewController {
     }
     
     func setupPlaceOrderButton() {
-        placeOrderButton = UIButton(frame: CGRect(x: 0, y: view.frame.height - 50, width: view.frame.width, height: 50))
+        placeOrderButton = UIButton(frame: CGRect(x: 0, y: view.frame.height - 80, width: view.frame.width, height: 80))
         placeOrderButton.backgroundColor = UIColor(hex: "#6ECC3D")
         placeOrderButton.setTitle("PLACE ORDER", for: .normal)
         placeOrderButton.setTitleColor(.white, for: .normal)
-        placeOrderButton.titleLabel?.font = UIFont(name: "SFUIText-Medium", size: 14)
+        placeOrderButton.titleLabel?.font = UIFont(name: "SFUIText-Medium", size: 28)
         placeOrderButton.addTarget(self, action: #selector(placeOrder), for: .touchUpInside)
         placeOrderButton.isHidden = true
         view.addSubview(placeOrderButton)
