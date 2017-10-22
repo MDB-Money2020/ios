@@ -189,6 +189,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         } else {
             for (_, items) in categoryToMenuItem {
                 for item in items {
+                    //TODO
                     if (item.category?.lowercased().contains((searchWord?.lowercased())!))! || (item.title?.lowercased().contains((searchWord?.lowercased())!))! || (item.description?.lowercased().contains((searchWord?.lowercased())!))! {
                         if var catItems = filteredCategoryToMenuItem[item.category!] {
                             catItems.append(item)
