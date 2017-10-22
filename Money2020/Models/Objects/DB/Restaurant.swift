@@ -38,6 +38,10 @@ class Restaurant: Mappable {
         return InstantAPIClient.getMenuItems(restaurantId: restaurantId)
     }
     
+    static func getMenuSuggestions(userId: String, restaurantId: String) -> Promise<[MenuItem]> {
+        return InstantAPIClient.getMenuSuggestions(userId: userId, restaurantId: restaurantId)
+    }
+    
     static func get(withId: String) -> Promise<Restaurant> {
         return InstantAPIClient.getRestaurant(id: withId)
     }
