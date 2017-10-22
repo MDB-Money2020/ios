@@ -62,6 +62,7 @@
 		169FF6E21F9C2C0600048765 /* InstantLocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FF6E11F9C2C0600048765 /* InstantLocalStore.swift */; };
 		169FF6E41F9C2C7100048765 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FF6E31F9C2C7100048765 /* Constants.swift */; };
 		16AEF88A1F9C38DA002A8E99 /* MenuHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AEF8891F9C38DA002A8E99 /* MenuHeaderCollectionReusableView.swift */; };
+		16BD101C1F9CC83D00399B3D /* CheckoutCardSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BD101B1F9CC83D00399B3D /* CheckoutCardSelectView.swift */; };
 		608916CDDF3DE0DD422F7D9D /* Pods_Money2020UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7737A0D3D5BFFD886B15CA15 /* Pods_Money2020UITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +143,7 @@
 		169FF6E11F9C2C0600048765 /* InstantLocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantLocalStore.swift; sourceTree = "<group>"; };
 		169FF6E31F9C2C7100048765 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		16AEF8891F9C38DA002A8E99 /* MenuHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		16BD101B1F9CC83D00399B3D /* CheckoutCardSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCardSelectView.swift; sourceTree = "<group>"; };
 		385FD2FF7EEBC3AB81CBCA9A /* Pods_Money2020Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Money2020Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45A60F45CBDF8E2E9A84EEB1 /* Pods-Money2020Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money2020Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Money2020Tests/Pods-Money2020Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		475AEE5BDBD527CF5F2425C1 /* Pods-Money2020UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money2020UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Money2020UITests/Pods-Money2020UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				1604A55C1F9CB0A900833EA7 /* CheckoutCommentsTableViewCell.swift */,
 				1604A55D1F9CB0A900833EA7 /* CheckoutItemTableViewCell.swift */,
 				1604A55B1F9CB0A900833EA7 /* CheckoutTotalTableViewCell.swift */,
+				16BD101B1F9CC83D00399B3D /* CheckoutCardSelectView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				16845C8D1F9BF26600CFD379 /* OrderItemDBSchema.swift in Sources */,
 				1604A56A1F9CB0FF00833EA7 /* CheckoutViewController-UISetup.swift in Sources */,
 				1604A56D1F9CB10600833EA7 /* CheckoutCommentsTableViewCell.swift in Sources */,
+				16BD101C1F9CC83D00399B3D /* CheckoutCardSelectView.swift in Sources */,
 				1626D8FB1F9C7D2200E99ADE /* NotificationTable.swift in Sources */,
 				1604A56B1F9CB10300833EA7 /* CheckoutViewController.swift in Sources */,
 				16845C891F9BF25400CFD379 /* UserDBSchema.swift in Sources */,
@@ -995,7 +999,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4X45GCW87V;
+				DEVELOPMENT_TEAM = Y2JVY29H4R;
 				INFOPLIST_FILE = Money2020/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1012,7 +1016,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4X45GCW87V;
+				DEVELOPMENT_TEAM = Y2JVY29H4R;
 				INFOPLIST_FILE = Money2020/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
