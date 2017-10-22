@@ -23,6 +23,10 @@
 		1626D8F91F9C7D0300E99ADE /* FaceIdService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D8F81F9C7D0300E99ADE /* FaceIdService.swift */; };
 		1626D8FB1F9C7D2200E99ADE /* NotificationTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D8FA1F9C7D2200E99ADE /* NotificationTable.swift */; };
 		1626D8FD1F9C972100E99ADE /* FaceRecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D8FC1F9C972100E99ADE /* FaceRecView.swift */; };
+		1626D8FF1F9C9D1F00E99ADE /* MenuViewController-CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D8FE1F9C9D1F00E99ADE /* MenuViewController-CollectionView.swift */; };
+		1626D9021F9C9DB300E99ADE /* MenuViewController-Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D9011F9C9DB300E99ADE /* MenuViewController-Search.swift */; };
+		1626D9041F9C9E9D00E99ADE /* MenuViewController-MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D9031F9C9E9D00E99ADE /* MenuViewController-MenuItem.swift */; };
+		1626D9061F9C9F0D00E99ADE /* MenuViewController-UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D9051F9C9F0D00E99ADE /* MenuViewController-UISetup.swift */; };
 		1674C13B1F9C3C3600F97573 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C13A1F9C3C3600F97573 /* StatusView.swift */; };
 		167E02411EF8EAF12967D0D2 /* Pods_Money2020Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385FD2FF7EEBC3AB81CBCA9A /* Pods_Money2020Tests.framework */; };
 		16845C3C1F9BC4EE00CFD379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16845C3B1F9BC4EE00CFD379 /* AppDelegate.swift */; };
@@ -90,6 +94,10 @@
 		1626D8F81F9C7D0300E99ADE /* FaceIdService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIdService.swift; sourceTree = "<group>"; };
 		1626D8FA1F9C7D2200E99ADE /* NotificationTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTable.swift; sourceTree = "<group>"; };
 		1626D8FC1F9C972100E99ADE /* FaceRecView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRecView.swift; sourceTree = "<group>"; };
+		1626D8FE1F9C9D1F00E99ADE /* MenuViewController-CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController-CollectionView.swift"; sourceTree = "<group>"; };
+		1626D9011F9C9DB300E99ADE /* MenuViewController-Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController-Search.swift"; sourceTree = "<group>"; };
+		1626D9031F9C9E9D00E99ADE /* MenuViewController-MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController-MenuItem.swift"; sourceTree = "<group>"; };
+		1626D9051F9C9F0D00E99ADE /* MenuViewController-UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController-UISetup.swift"; sourceTree = "<group>"; };
 		1674C13A1F9C3C3600F97573 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		16845C381F9BC4EE00CFD379 /* Money2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money2020.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16845C3B1F9BC4EE00CFD379 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +185,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		1626D9001F9C9D9900E99ADE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				169FF6D91F9C1AAC00048765 /* MenuItemCollectionViewCell.swift */,
+				16AEF8891F9C38DA002A8E99 /* MenuHeaderCollectionReusableView.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		16845C2F1F9BC4EE00CFD379 = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +266,7 @@
 		16845C6D1F9BC65C00CFD379 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1626D8FC1F9C972100E99ADE /* FaceRecView.swift */,
 				169FF6DB1F9C1B4100048765 /* MenuItemDetailView.swift */,
 				169FF6DD1F9C1BA600048765 /* Modalview.swift */,
 				1674C13A1F9C3C3600F97573 /* StatusView.swift */,
@@ -364,10 +382,12 @@
 		169FF6D11F9C19C700048765 /* MenuViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1626D9001F9C9D9900E99ADE /* Cells */,
 				169FF6D51F9C19E200048765 /* MenuViewController.swift */,
-				169FF6D91F9C1AAC00048765 /* MenuItemCollectionViewCell.swift */,
-				16AEF8891F9C38DA002A8E99 /* MenuHeaderCollectionReusableView.swift */,
-				1626D8FC1F9C972100E99ADE /* FaceRecView.swift */,
+				1626D8FE1F9C9D1F00E99ADE /* MenuViewController-CollectionView.swift */,
+				1626D9011F9C9DB300E99ADE /* MenuViewController-Search.swift */,
+				1626D9031F9C9E9D00E99ADE /* MenuViewController-MenuItem.swift */,
+				1626D9051F9C9F0D00E99ADE /* MenuViewController-UISetup.swift */,
 			);
 			path = MenuViewController;
 			sourceTree = "<group>";
@@ -747,6 +767,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1626D8FD1F9C972100E99ADE /* FaceRecView.swift in Sources */,
+				1626D9021F9C9DB300E99ADE /* MenuViewController-Search.swift in Sources */,
 				16845C901F9BF46200CFD379 /* DateTransform.swift in Sources */,
 				1616E1161F9C579400B2943D /* CheckoutCardTableViewCell.swift in Sources */,
 				16845C791F9BC9AE00CFD379 /* Order.swift in Sources */,
@@ -760,11 +781,13 @@
 				16845C891F9BF25400CFD379 /* UserDBSchema.swift in Sources */,
 				169FF6D81F9C19EE00048765 /* InitialViewController.swift in Sources */,
 				169FF6DA1F9C1AAC00048765 /* MenuItemCollectionViewCell.swift in Sources */,
+				1626D9041F9C9E9D00E99ADE /* MenuViewController-MenuItem.swift in Sources */,
 				169FF6D61F9C19E200048765 /* MenuViewController.swift in Sources */,
 				169FF6DC1F9C1B4100048765 /* MenuItemDetailView.swift in Sources */,
 				1616E1181F9C57AA00B2943D /* CheckoutCommentsTableViewCell.swift in Sources */,
 				16845C8B1F9BF25D00CFD379 /* OrderDBSchema.swift in Sources */,
 				169FF6DE1F9C1BA600048765 /* Modalview.swift in Sources */,
+				1626D9061F9C9F0D00E99ADE /* MenuViewController-UISetup.swift in Sources */,
 				16845C851F9BF24600CFD379 /* MenuItemDBSchema.swift in Sources */,
 				16845C441F9BC4EE00CFD379 /* Money2020.xcdatamodeld in Sources */,
 				16AEF88A1F9C38DA002A8E99 /* MenuHeaderCollectionReusableView.swift in Sources */,
@@ -777,6 +800,7 @@
 				16845C3C1F9BC4EE00CFD379 /* AppDelegate.swift in Sources */,
 				1626D8F91F9C7D0300E99ADE /* FaceIdService.swift in Sources */,
 				1616E11A1F9C596200B2943D /* PaymentHelper.swift in Sources */,
+				1626D8FF1F9C9D1F00E99ADE /* MenuViewController-CollectionView.swift in Sources */,
 				169FF6E21F9C2C0600048765 /* InstantLocalStore.swift in Sources */,
 				1616E1121F9C576F00B2943D /* CheckoutItemTableViewCell.swift in Sources */,
 				1674C13B1F9C3C3600F97573 /* StatusView.swift in Sources */,
