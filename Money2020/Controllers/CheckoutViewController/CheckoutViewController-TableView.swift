@@ -32,6 +32,10 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.awakeFromNib()
+            cell.layer.shadowOffset = CGSize(width: 1.0, height: 0.0)
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowRadius = 5
+            cell.layer.shadowOpacity = 0.25
 
             
             return cell
@@ -47,6 +51,7 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
             cell.awakeFromNib()
             
             cell.commentsTextField.delegate = self
+            
             
             return cell
             
@@ -99,9 +104,9 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 2 {
             return 120
         } else if indexPath.section == 0 {
-            return 600
+            return 500
         } else if indexPath.section == 1 {
-            return 120
+            return 140
         } else if indexPath.section == 3 {
             return 120
         }

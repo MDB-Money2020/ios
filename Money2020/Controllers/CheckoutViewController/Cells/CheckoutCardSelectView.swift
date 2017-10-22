@@ -43,7 +43,7 @@ class CheckoutCardSelectView: UIView {
         cardNum.textColor = UIColor.white
         visa.addSubview(cardNum)
         
-        let expire = UILabel(frame: CGRect(x: card.frame.width-200, y: cardNum.frame.maxY-50, width: 200, height: 50))
+        let expire = UILabel(frame: CGRect(x: card.frame.width-200, y: cardNum.frame.minY, width: 200, height: card.frame.height*(1/4)))
         expire.text = "Exp 04/21"
         expire.font = expire.font.withSize(30)
         expire.textColor = UIColor.white

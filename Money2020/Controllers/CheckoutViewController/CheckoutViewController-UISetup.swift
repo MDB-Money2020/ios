@@ -21,7 +21,7 @@ extension CheckoutViewController {
     }
     
     func setupTableView() {
-        tableView = UITableView(frame: view.frame)
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 80))
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CheckoutItemTableViewCell.self, forCellReuseIdentifier: "itemCell")
