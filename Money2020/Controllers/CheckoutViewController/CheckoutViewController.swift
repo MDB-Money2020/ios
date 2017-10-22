@@ -57,10 +57,10 @@ class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
         navigationItem.title = "Checkout"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "x"), style: .plain, target: self, action: #selector(dismissVC))
         navigationController?.navigationBar.tintColor = UIColor(hex: "#494949")
-        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SFUIText-Regular", size: 17)!]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "SFUIText-Regular", size: 17)!]
         navigationController?.navigationBar.barTintColor = .white
     }
-    
+    @objc   
     func dismissVC() {
         dismiss(animated: true, completion: nil)
     }
@@ -92,7 +92,7 @@ class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
 
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
     }
-    func placeOrder() {
+    @objc func placeOrder() {
         currOrder = InstantLocalStore.getCurrOrder(atRestaurantId: restaurant.restaurantId!)
         if currOrder == nil {
             return
@@ -110,13 +110,13 @@ class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
             InstantLocalStore.clearCurrOrder(atRestaurantId: self.restaurant.restaurantId!)
             self.placeOrderButton.isHidden = true
             statusView.displayMessage(text: "Order Placed!")
-            statusView.hideAfter(delay: 0.75, completion: { _ in
+            statusView.hideAfter(delay: 0.75, completion: {  () -> Void in
                 self.dismiss(animated: true, completion: nil)
             })
         }
     }
     
-    func closeKeyboard() {
+    @objc func closeKeyboard() {
         view.endEditing(true)
     }
 
@@ -134,7 +134,7 @@ class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
         statusView.alpha = 0
         statusView.show(inView: (navigationController?.view)!)
 
-        SpringAnimation.springWithCompletion(duration: 0.5, animations: { _ in
+        SpringAnimation.springWithCompletion(duration: 0.5, animations: { 
             self.itemDetailView.frame = self.statusView.frame
         }, completion: { _ in
             self.modalView.dismiss()

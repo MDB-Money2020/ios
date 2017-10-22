@@ -36,13 +36,15 @@ class InstantAPIClient {
     
     static func getUserByFaceId(imageUrl: String) -> Promise<User> {
         return Promise { fulfill, reject in
-            after(interval: 10).then { _ -> Void in
+            after(interval: 5).then { _ -> Void in
                 reject(RequestTimedOutError.requestTimedOut)
             }
             let endpoint = Constants.apiUrl + "users/verification/"
             let params: [String: Any] = ["imageUrl": imageUrl]
             Alamofire.request(endpoint, method: .patch, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON().then { response -> Void in
-                let json = JSON(object: response)
+                print("raw response")
+                print(response)
+                let json = JSON(response)
                 log.info("Response: \(json.description)")
                 if let result = json["result"].dictionaryObject {
                     if let user = User(JSON: result) {
@@ -64,7 +66,7 @@ class InstantAPIClient {
             }
             let endpoint = Constants.apiUrl + "users?userId=\(id)"
             Alamofire.request(endpoint).responseJSON().then { response -> Void in
-                let json = JSON(object: response)
+                let json = JSON(response)
                 log.info("Response: \(json.description)")
                 if let result = json["result"].dictionaryObject {
                     if let user = User(JSON: result) {
@@ -85,7 +87,7 @@ class InstantAPIClient {
             }
             let endpoint = Constants.apiUrl + "restaurants/\(id)"
             Alamofire.request(endpoint).responseJSON().then { response -> Void in
-                let json = JSON(object: response)
+                let json = JSON(response)
                 log.info("Response: \(json.description)")
                 if let result = json["result"].dictionaryObject {
                     if let restaurant = Restaurant(JSON: result) {
@@ -106,7 +108,7 @@ class InstantAPIClient {
             }
             let endpoint = Constants.apiUrl + "menuItems/\(id)"
             Alamofire.request(endpoint).responseJSON().then { response -> Void in
-                let json = JSON(object: response)
+                let json = JSON(response)
                 log.info("Response: \(json.description)")
                 if let result = json["result"].dictionaryObject {
                     if let menuItem = MenuItem(JSON: result) {
@@ -120,15 +122,14 @@ class InstantAPIClient {
         }
     }
     
-    //TODO: fix route
-    static func getSuggestedMenuItems(restaurantId: String) -> Promise<[MenuItem]> {
+    static func getMenuSuggestions(userId: String, restaurantId: String) -> Promise<[MenuItem]> {
         return Promise { fulfill, reject in
             after(interval: 10).then { _ -> Void in
                 reject(RequestTimedOutError.requestTimedOut)
             }
-            let endpoint = Constants.apiUrl + "menuItems?restaurantId=\(restaurantId)"
+            let endpoint = Constants.apiUrl + "menuItems?userId=\(userId)&restaurantId=\(restaurantId)&suggested=true"
             Alamofire.request(endpoint).responseJSON().then { response -> Void in
-                let json = JSON(object: response)
+                let json = JSON(response)
                 log.info("Response: \(json.description)")
                 if let results = json["result"].array {
                     var items = [MenuItem]()
@@ -153,7 +154,7 @@ class InstantAPIClient {
             }
             let endpoint = Constants.apiUrl + "menuItems?restaurantId=\(restaurantId)"
             Alamofire.request(endpoint).responseJSON().then { response -> Void in
-                let json = JSON(object: response)
+                let json = JSON(response)
                 log.info("Response: \(json.description)")
                 if let results = json["result"].array {
                     var items = [MenuItem]()
@@ -182,7 +183,7 @@ class InstantAPIClient {
                                          "instructions": instructions,
                                          "orderItems": orderItems]
             Alamofire.request(endpoint, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON().then { response -> Void in
-                let json = JSON(object: response)
+                let json = JSON(response)
                 log.info("Response: \(json.description)")
                 if let result = json["result"].dictionaryObject {
                     if let order = Order(JSON: result) {

@@ -9,6 +9,7 @@
 import UIKit
 import PromiseKit
 import Spring
+import AVFoundation
 
 class MenuViewController: UIViewController, UINavigationControllerDelegate {
     
@@ -25,9 +26,29 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
     var headerView: UIView!
     var searchWord: String?
     var debounceTimer: Timer?
+    
+    //MARK: FaceId
+    var faceIdService: FaceIdService!
+    var session: AVCaptureSession?
+    var scannedImage: UIImage!
+    lazy var previewLayer: AVCaptureVideoPreviewLayer? = {
+        var previewLay = AVCaptureVideoPreviewLayer(session: self.session!)
+        previewLay.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        
+        return previewLay
+    }()
+    lazy var frontCamera: AVCaptureDevice? = {
+        guard let devices = AVCaptureDevice.devices(for: AVMediaType.video) as? [AVCaptureDevice] else { return nil }
+        
+        return devices.filter { $0.position == .front }.first
+    }()
+    
+    let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: [CIDetectorAccuracy : CIDetectorAccuracyLow])
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        faceIdService = FaceIdService()
         setupNavbar()
         setupSearchBar()
         setupCollectionView()
@@ -50,18 +71,124 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
                 self.collectionView.reloadData()
             }
         }
+        
+        
+        //Camera
+        sessionPrepare()
+        session?.startRunning()
+        
+    }
+    
+    
+    
+    func setupNotificationObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handle(notification:)), name: NotificationTable.userSignedIn, object: nil)
+    }
+    
+    func removeNotificationObservers() {
+        NotificationCenter.default.removeObserver(self, name: NotificationTable.userSignedIn, object: nil)
+    }
+    
+    @objc func handle(notification: Notification) {
+        if let userInfo = notification.userInfo as? [String: Any] {
+            if let user = User(JSON: userInfo) {
+                if user.userId != nil && user.userId != InstantLocalStore.getCurrUserId() {
+                    InstantLocalStore.clearCurrOrder(atRestaurantId: "-Kx0rrVSISYN1ZmefG8_")
+                    InstantLocalStore.setCurrUserId(userId: user.userId!)
+                    refresh()
+                }
+            }
+        }
+    }
+    
+    func refresh() {
+        //refresh suggestions & cart
+        
+        updateUIWithCart()
+        loadSuggestedMenuItems()
+        
+    }
+    
+    func loadSuggestedMenuItems() {
+        guard let currUserId = InstantLocalStore.getCurrUserId() else { return }
+        firstly {
+            return Restaurant.getMenuSuggestions(userId: currUserId, restaurantId: restaurant.restaurantId!)
+        }.then { suggestedItems -> Void in
+            self.categoryToMenuItem["Suggestions"] = suggestedItems
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
+    
+    
+    //camera
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        previewLayer?.frame = CGRect(x: 0, y: 10, width: view.frame.width, height: view.frame.height/2)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard let previewLayer = previewLayer else { return }
+        view.layer.addSublayer(previewLayer)
+    }
+    
+    func sessionPrepare() {
+        session = AVCaptureSession()
+        
+        guard let session = session, let captureDevice = frontCamera else { return }
+        
+        session.sessionPreset = AVCaptureSession.Preset.photo
+        
+        do {
+            let deviceInput = try AVCaptureDeviceInput(device: captureDevice)
+            session.beginConfiguration()
+            
+            if session.canAddInput(deviceInput) {
+                session.addInput(deviceInput)
+            }
+            
+            let output = AVCaptureVideoDataOutput()
+            output.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String : NSNumber(value: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)]
+            
+            output.alwaysDiscardsLateVideoFrames = true
+            
+            if session.canAddOutput(output) {
+                session.addOutput(output)
+            }
+            
+            session.commitConfiguration()
+            
+            let queue = DispatchQueue(label: "output.queue")
+            output.setSampleBufferDelegate(self, queue: queue)
+            print("This delegate is set! \(output.sampleBufferDelegate)")
+            
+        } catch {
+            print("error with creating AVCaptureDeviceInput")
+        }
     }
     
     func setupNavbar() {
         navigationController?.isNavigationBarHidden = false
         navigationItem.title = "Menu"
         navigationController?.navigationBar.tintColor = UIColor(hex: "#494949")
-        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SFUIText-Regular", size: 17)!]
+        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "SFUIText-Regular", size: 17)!]
         navigationController?.navigationBar.barTintColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setupNotificationObservers()
         updateUIWithCart()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        removeNotificationObservers()
     }
     
     func updateUIWithCart() {
@@ -96,7 +223,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         statusView.alpha = 0
         statusView.show(inView: (navigationController?.view)!)
         
-        SpringAnimation.springWithCompletion(duration: 0.5, animations: { _ in
+        SpringAnimation.springWithCompletion(duration: 0.5, animations: { 
             if self.itemDetailView != nil {
                 self.itemDetailView.frame = statusView.frame
             }
@@ -108,7 +235,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
             if self.checkoutButton.isHidden {
                 self.checkoutButton.frame.origin.y = self.view.frame.height
                 self.checkoutButton.isHidden = false
-                SpringAnimation.springEaseIn(duration: 0.3, animations: { _ in
+                SpringAnimation.springEaseIn(duration: 0.3, animations: { 
                     self.checkoutButton.frame.origin.y = self.view.frame.height - self.checkoutButton.frame.height
                 })
             }
@@ -119,7 +246,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
     func setupSearchBar() {
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let navBarHeight = navigationController?.navigationBar.frame.height
-        headerView = UIView(frame: CGRect(x: -1, y: statusBarHeight + navBarHeight!, width: view.frame.width + 2, height: 45))
+        headerView = UIView(frame: CGRect(x: -1, y: statusBarHeight + navBarHeight! + view.frame.height/2, width: view.frame.width + 2, height: 45))
         headerView.layer.borderColor = UIColor(hex: "#EEEFF0").cgColor
         headerView.layer.borderWidth = 0.8
         headerView.backgroundColor = .white
@@ -133,7 +260,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         searchBar.layer.cornerRadius = 3
         searchBar.clipsToBounds = true
         searchBar.delegate = self
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSFontAttributeName: UIFont(name: "SFUIText-Regular", size: 13)!], for: .normal)
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "SFUIText-Regular", size: 13)!], for: .normal)
         
         let searchField = searchBar.value(forKey: "searchField") as? UITextField
         searchField?.font = UIFont(name: "SFUIText-Regular", size: 12)
@@ -165,7 +292,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         updateUIWithCart()
     }
     
-    func toCheckout() {
+    @objc func toCheckout() {
         performSegue(withIdentifier: "toCheckout", sender: self)
     }
     
@@ -182,7 +309,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         view.addSubview(collectionView)
     }
     
-    func searchMenu() {
+    @objc func searchMenu() {
         filteredCategoryToMenuItem = [String: [MenuItem]]()
         if searchWord == "" || searchWord == nil {
             filteredCategoryToMenuItem = categoryToMenuItem
@@ -224,6 +351,63 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
     }
     
 
+}
+
+extension MenuViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+
+        let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+        let attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, sampleBuffer, kCMAttachmentMode_ShouldPropagate)
+        let ciImage = CIImage(cvImageBuffer: pixelBuffer!, options: attachments as! [String : Any]?)
+        let options: [String : Any] = [CIDetectorImageOrientation: calculateOrientation(orientation: UIDevice.current.orientation),
+                                       CIDetectorSmile: true,
+                                       CIDetectorEyeBlink: true]
+        let allFeatures = faceDetector?.features(in: ciImage, options: options)
+        
+        let formatDescription = CMSampleBufferGetFormatDescription(sampleBuffer)
+        _ = CMVideoFormatDescriptionGetCleanAperture(formatDescription!, false)
+        
+        guard let features = allFeatures else { return }
+        
+        for feature in features {
+            if feature is CIFaceFeature {
+//                let inMiddleHorizontal = UIScreen.main.bounds.width * 0.25 <= feature.bounds.minX && feature.bounds.maxX <= UIScreen.main.bounds.width * 2
+//                let inMiddleVertical = UIScreen.main.bounds.height * 0.25 <= feature.bounds.minY && feature.bounds.maxY <= UIScreen.main.bounds.height * 0.80
+                DispatchQueue.main.async {
+                    guard let cgImage = CIContext(options: nil).createCGImage(ciImage, from: ciImage.extent) else {
+                        log.info("Could not convert image")
+                        return
+                    }
+                    self.scannedImage = UIImage(cgImage: cgImage)
+                    
+                    self.faceIdService.handle(image: self.scannedImage)
+//                    if inMiddleVertical && inMiddleHorizontal {
+//                        self.scannedImage = UIImage(ciImage: ciImage)
+//                        print("got image here")
+////                        self.faceIdService.handle(image: self.scannedImage)
+//                    }
+                }
+                
+            }
+        }
+        
+    }
+    
+    
+    
+    func calculateOrientation(orientation: UIDeviceOrientation) -> Int {
+        switch orientation {
+        case .portraitUpsideDown:
+            return 8
+        case .landscapeLeft:
+            return 3
+        case .landscapeRight:
+            return 1
+        default:
+            return 6
+        }
+    }
+    
 }
 
 extension MenuViewController: UISearchBarDelegate, UITextFieldDelegate {
