@@ -103,9 +103,6 @@ extension FaceRecView: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         for feature in features {
             if feature is CIFaceFeature {
-                //TODO: fix
-                //                let inMiddleHorizontal = UIScreen.main.bounds.width * 0.25 <= feature.bounds.minX && feature.bounds.maxX <= UIScreen.main.bounds.width * 2
-                //                let inMiddleVertical = UIScreen.main.bounds.height * 0.25 <= feature.bounds.minY && feature.bounds.maxY <= UIScreen.main.bounds.height * 0.80
                 DispatchQueue.main.async {
                     guard let cgImage = CIContext(options: nil).createCGImage(ciImage, from: ciImage.extent) else {
                         log.info("Could not convert image")
@@ -114,11 +111,6 @@ extension FaceRecView: AVCaptureVideoDataOutputSampleBufferDelegate {
                     self.scannedImage = UIImage(cgImage: cgImage)
                     
                     self.delegate?.handleNewImage(image: self.scannedImage)
-                    //                    if inMiddleVertical && inMiddleHorizontal {
-                    //                        self.scannedImage = UIImage(ciImage: ciImage)
-                    //                        print("got image here")
-                    ////                        self.faceIdService.handle(image: self.scannedImage)
-                    //                    }
                 }
                 
             }
