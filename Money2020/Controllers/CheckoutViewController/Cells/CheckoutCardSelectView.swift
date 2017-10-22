@@ -13,6 +13,7 @@ class CheckoutCardSelectView: UIView {
     var card: UIImageView!
     var add: UIButton!
     var label: UILabel!
+    var name: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,8 +32,7 @@ class CheckoutCardSelectView: UIView {
         visa.contentMode = .scaleAspectFit
         card.addSubview(visa)
         
-        let name = UILabel(frame: CGRect(x: 10, y: card.frame.height-200, width: card.frame.width*(1/2), height:card.frame.height*(1/4)))
-        name.text = "Daniel Andrews"
+        name = UILabel(frame: CGRect(x: 10, y: card.frame.height-200, width: card.frame.width*(1/2), height:card.frame.height*(1/4)))
         name.font = name.font.withSize(40)
         name.textColor = UIColor.white
         visa.addSubview(name)

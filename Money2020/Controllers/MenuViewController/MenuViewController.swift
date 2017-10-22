@@ -37,6 +37,8 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
     //FaceId
     var faceIdService = FaceIdService()
     var faceRecView: FaceRecView!
+    var helloView: HelloView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,9 +133,14 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         if let userInfo = notification.userInfo as? [String: Any] {
             if let user = User(JSON: userInfo) {
                 if user.userId != nil && user.userId != InstantLocalStore.getCurrUserId() {
+                    self.user = user
                     InstantLocalStore.clearCurrOrder(atRestaurantId: "-Kx0rrVSISYN1ZmefG8_")
                     InstantLocalStore.setCurrUserId(userId: user.userId!)
-                    faceRecView.textLabel.text = "Welcome \(user.fullName!)"
+                    user.getProfPic().then { img in
+                        DispatchQueue.main.async {
+                            self.helloView.populate(fullName: user.fullName!, image: img)
+                        }
+                    }
                     refresh()
                 }
             }
@@ -147,6 +154,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
             let navVC = segue.destination as! UINavigationController
             let destVC = navVC.topViewController as! CheckoutViewController
             destVC.restaurant = restaurant
+            destVC.user = user
         }
     }
     

@@ -16,15 +16,13 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        InstantLocalStore.clearCurrUserId()
+        InstantLocalStore.clearCurrOrder(atRestaurantId: "-Kx0rrVSISYN1ZmefG8_")
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        InstantLocalStore.setCurrUserId(userId: "-Kx10rkMvpJbdciGBvhC")
         Restaurant.get(withId: "-Kx0rrVSISYN1ZmefG8_").then { restaurant -> Void in
             self.restaurant = restaurant
-            print("got restaurant")
-            print(restaurant.toJSON())
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "toMain", sender: self)
             }

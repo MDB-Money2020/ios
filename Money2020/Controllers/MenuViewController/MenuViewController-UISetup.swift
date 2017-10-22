@@ -25,6 +25,9 @@ extension MenuViewController {
         faceRecView = FaceRecView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/3))
         faceRecView.delegate = self
         view.addSubview(faceRecView)
+        
+        helloView = HelloView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/3), restaurantName: restaurant.name!)
+        view.addSubview(helloView)
     }
     
     func setupCheckoutButton() {

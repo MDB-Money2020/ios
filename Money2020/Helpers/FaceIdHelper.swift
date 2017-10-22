@@ -40,7 +40,7 @@ class FaceIdHelper {
         return Promise { fulfill, reject in
             let storageRef = Storage.storage().reference()
             let uuid = UUID().uuidString //Note: not consistent accross devices, fix this hack
-            let imageRef = storageRef.child("faceImages/\(uuid)")
+            let imageRef = storageRef.child("faceImages/\(uuid).jpg")
             guard let data = UIImageJPEGRepresentation(image, 0.9) else {
                 log.error("Image data is nil")
                 reject(ImageEmptyError.imageEmpty)

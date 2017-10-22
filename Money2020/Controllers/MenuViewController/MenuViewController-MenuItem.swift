@@ -67,6 +67,12 @@ extension MenuViewController {
     }
     
     func addToCart(item: MenuItem, quantity: Int, withOptions: [Option]) {
+        if InstantLocalStore.getCurrUserId() == nil {
+            let alert = UIAlertController(title: "Not Authenticated", message: "Please put your face in front of the camera to authenticate before you add items to your cart", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         var order: Order!
         if let currOrder = InstantLocalStore.getCurrOrder(atRestaurantId: restaurant.restaurantId!) {
             order = currOrder

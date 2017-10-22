@@ -10,7 +10,7 @@ import PromiseKit
 import Spring
 
 class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
-    
+    var user: User!
     var restaurant: Restaurant!
     var tableView: UITableView!
     var currOrder: Order?
@@ -22,6 +22,7 @@ class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
     var activeField: UITextField?
     var modalView: ModalView!
     var statusView: StatusView!
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default

@@ -36,7 +36,7 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
             cell.layer.shadowColor = UIColor.black.cgColor
             cell.layer.shadowRadius = 5
             cell.layer.shadowOpacity = 0.25
-
+            cell.card1.name.text = user.fullName!
             
             return cell
             

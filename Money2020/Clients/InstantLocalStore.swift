@@ -22,6 +22,10 @@ class InstantLocalStore {
         return nil
     }
     
+    static func clearCurrUserId() {
+        UserDefaults.standard.removeObject(forKey: "currUserId")
+    }
+    
     static func saveCurrOrder(order: Order) {
         let json = order.toJSON()
         UserDefaults.standard.set(json, forKey: "\(order.restaurantId!)/currOrder")

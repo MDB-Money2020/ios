@@ -17,6 +17,7 @@ class User: Mappable {
     var paymentSources = [String]()
     var imageUrls = [String]()
     var lastUpdated: Date?
+    var profPicUrl: String?
     
     required init?(map: Map) {
         
@@ -24,11 +25,16 @@ class User: Mappable {
     
     func mapping(map: Map) {
         userId                <- map[UserDBSchema.userId]
+        profPicUrl            <- map[UserDBSchema.profPicUrl]
         orderIds              <- map[UserDBSchema.orderIds]
         fullName              <- map[UserDBSchema.fullName]
         paymentSources        <- map[UserDBSchema.paymentSources]
         imageUrls             <- map[UserDBSchema.imageUrls]
         lastUpdated           <- (map[UserDBSchema.lastUpdated], DateTransform())
+    }
+    
+    func getProfPic() -> Promise<UIImage> {
+        return InstantUtils.getImage(withUrl: profPicUrl!)
     }
 
 }

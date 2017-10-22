@@ -15,5 +15,5 @@ struct UserDBSchema {
     static let paymentSources = "paymentSources"
     static let imageUrls = "imageUrls"
     static let lastUpdated = "lastUpdated"
-
+    static let profPicUrl = "profPicUrl"
 }

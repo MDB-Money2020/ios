@@ -17,12 +17,14 @@ class CheckoutCardTableViewCell: UITableViewCell {
     var pageControl: UIPageControl!
     var scrollView: UIScrollView!
     
+    var card1: CheckoutCardSelectView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor(hex: "#FAFAFA")
         selectionStyle = .none
     
-        let card1 = CheckoutCardSelectView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        card1 = CheckoutCardSelectView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
         addSubview(card1)
 
         

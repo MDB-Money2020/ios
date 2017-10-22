@@ -18,6 +18,8 @@
 		1604A56E1F9CB10600833EA7 /* CheckoutItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A55D1F9CB0A900833EA7 /* CheckoutItemTableViewCell.swift */; };
 		1604A56F1F9CB10600833EA7 /* CheckoutTotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A55B1F9CB0A900833EA7 /* CheckoutTotalTableViewCell.swift */; };
 		1604A5711F9CC62700833EA7 /* MenuCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A5701F9CC62700833EA7 /* MenuCategoryViewController.swift */; };
+		1604A5731F9CE31300833EA7 /* CheckoutOrderDetailsTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A5721F9CE31300833EA7 /* CheckoutOrderDetailsTitleTableViewCell.swift */; };
+		1604A5751F9CEC4900833EA7 /* HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A5741F9CEC4900833EA7 /* HelloView.swift */; };
 		1616E1051F9C507700B2943D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1616E1041F9C4FFC00B2943D /* GoogleService-Info.plist */; };
 		1616E10C1F9C511C00B2943D /* SF-UI-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1616E10B1F9C510000B2943D /* SF-UI-Text-Bold.otf */; };
 		1616E10D1F9C511C00B2943D /* SF-UI-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1616E1081F9C510000B2943D /* SF-UI-Text-Light.otf */; };
@@ -95,6 +97,8 @@
 		1604A5611F9CB0B000833EA7 /* CheckoutViewController-Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController-Cart.swift"; sourceTree = "<group>"; };
 		1604A5621F9CB0B000833EA7 /* CheckoutViewController-MenuItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController-MenuItemDetail.swift"; sourceTree = "<group>"; };
 		1604A5701F9CC62700833EA7 /* MenuCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryViewController.swift; sourceTree = "<group>"; };
+		1604A5721F9CE31300833EA7 /* CheckoutOrderDetailsTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutOrderDetailsTitleTableViewCell.swift; sourceTree = "<group>"; };
+		1604A5741F9CEC4900833EA7 /* HelloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloView.swift; sourceTree = "<group>"; };
 		1616E1041F9C4FFC00B2943D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1616E1071F9C510000B2943D /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		1616E1081F9C510000B2943D /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 			children = (
 				1604A55A1F9CB0A900833EA7 /* CheckoutCardTableViewCell.swift */,
 				1604A55C1F9CB0A900833EA7 /* CheckoutCommentsTableViewCell.swift */,
+				1604A5721F9CE31300833EA7 /* CheckoutOrderDetailsTitleTableViewCell.swift */,
 				1604A55D1F9CB0A900833EA7 /* CheckoutItemTableViewCell.swift */,
 				1604A55B1F9CB0A900833EA7 /* CheckoutTotalTableViewCell.swift */,
 				16BD101B1F9CC83D00399B3D /* CheckoutCardSelectView.swift */,
@@ -294,6 +299,7 @@
 				169FF6DB1F9C1B4100048765 /* MenuItemDetailView.swift */,
 				169FF6DD1F9C1BA600048765 /* Modalview.swift */,
 				1674C13A1F9C3C3600F97573 /* StatusView.swift */,
+				1604A5741F9CEC4900833EA7 /* HelloView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -800,6 +806,7 @@
 				16845C791F9BC9AE00CFD379 /* Order.swift in Sources */,
 				1604A5671F9CB0FF00833EA7 /* CheckoutViewController-Cart.swift in Sources */,
 				16845C701F9BC69200CFD379 /* MenuItem.swift in Sources */,
+				1604A5731F9CE31300833EA7 /* CheckoutOrderDetailsTitleTableViewCell.swift in Sources */,
 				1604A56F1F9CB10600833EA7 /* CheckoutTotalTableViewCell.swift in Sources */,
 				16845C741F9BC6A100CFD379 /* Restaurant.swift in Sources */,
 				16845C871F9BF24C00CFD379 /* RestaurantDBSchema.swift in Sources */,
@@ -822,6 +829,7 @@
 				16845C8B1F9BF25D00CFD379 /* OrderDBSchema.swift in Sources */,
 				169FF6DE1F9C1BA600048765 /* Modalview.swift in Sources */,
 				1626D9061F9C9F0D00E99ADE /* MenuViewController-UISetup.swift in Sources */,
+				1604A5751F9CEC4900833EA7 /* HelloView.swift in Sources */,
 				16845C851F9BF24600CFD379 /* MenuItemDBSchema.swift in Sources */,
 				16845C441F9BC4EE00CFD379 /* Money2020.xcdatamodeld in Sources */,
 				16AEF88A1F9C38DA002A8E99 /* MenuHeaderCollectionReusableView.swift in Sources */,
