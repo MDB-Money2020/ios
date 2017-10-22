@@ -8,7 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		017A03E8BBA83809E2FA7E71 /* Pods_Money2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2DA16792506DB7A304D12E6 /* Pods_Money2020.framework */; };
-		1604A5591F9CAFFC00833EA7 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A5581F9CAFFC00833EA7 /* CheckoutViewController.swift */; };
+		1604A5671F9CB0FF00833EA7 /* CheckoutViewController-Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A5611F9CB0B000833EA7 /* CheckoutViewController-Cart.swift */; };
+		1604A5681F9CB0FF00833EA7 /* CheckoutViewController-MenuItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A5621F9CB0B000833EA7 /* CheckoutViewController-MenuItemDetail.swift */; };
+		1604A5691F9CB0FF00833EA7 /* CheckoutViewController-TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A55F1F9CB0AF00833EA7 /* CheckoutViewController-TableView.swift */; };
+		1604A56A1F9CB0FF00833EA7 /* CheckoutViewController-UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A55E1F9CB0AF00833EA7 /* CheckoutViewController-UISetup.swift */; };
+		1604A56B1F9CB10300833EA7 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A5601F9CB0AF00833EA7 /* CheckoutViewController.swift */; };
+		1604A56C1F9CB10600833EA7 /* CheckoutCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A55A1F9CB0A900833EA7 /* CheckoutCardTableViewCell.swift */; };
+		1604A56D1F9CB10600833EA7 /* CheckoutCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A55C1F9CB0A900833EA7 /* CheckoutCommentsTableViewCell.swift */; };
+		1604A56E1F9CB10600833EA7 /* CheckoutItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A55D1F9CB0A900833EA7 /* CheckoutItemTableViewCell.swift */; };
+		1604A56F1F9CB10600833EA7 /* CheckoutTotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A55B1F9CB0A900833EA7 /* CheckoutTotalTableViewCell.swift */; };
 		1616E1051F9C507700B2943D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1616E1041F9C4FFC00B2943D /* GoogleService-Info.plist */; };
 		1616E10C1F9C511C00B2943D /* SF-UI-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1616E10B1F9C510000B2943D /* SF-UI-Text-Bold.otf */; };
 		1616E10D1F9C511C00B2943D /* SF-UI-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1616E1081F9C510000B2943D /* SF-UI-Text-Light.otf */; };
@@ -75,7 +83,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1604A5581F9CAFFC00833EA7 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		1604A55A1F9CB0A900833EA7 /* CheckoutCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCardTableViewCell.swift; sourceTree = "<group>"; };
+		1604A55B1F9CB0A900833EA7 /* CheckoutTotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTotalTableViewCell.swift; sourceTree = "<group>"; };
+		1604A55C1F9CB0A900833EA7 /* CheckoutCommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCommentsTableViewCell.swift; sourceTree = "<group>"; };
+		1604A55D1F9CB0A900833EA7 /* CheckoutItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemTableViewCell.swift; sourceTree = "<group>"; };
+		1604A55E1F9CB0AF00833EA7 /* CheckoutViewController-UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController-UISetup.swift"; sourceTree = "<group>"; };
+		1604A55F1F9CB0AF00833EA7 /* CheckoutViewController-TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController-TableView.swift"; sourceTree = "<group>"; };
+		1604A5601F9CB0AF00833EA7 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		1604A5611F9CB0B000833EA7 /* CheckoutViewController-Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController-Cart.swift"; sourceTree = "<group>"; };
+		1604A5621F9CB0B000833EA7 /* CheckoutViewController-MenuItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController-MenuItemDetail.swift"; sourceTree = "<group>"; };
 		1616E1041F9C4FFC00B2943D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1616E1071F9C510000B2943D /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		1616E1081F9C510000B2943D /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
@@ -91,14 +107,6 @@
 		1626D9011F9C9DB300E99ADE /* MenuViewController-Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController-Search.swift"; sourceTree = "<group>"; };
 		1626D9031F9C9E9D00E99ADE /* MenuViewController-MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController-MenuItem.swift"; sourceTree = "<group>"; };
 		1626D9051F9C9F0D00E99ADE /* MenuViewController-UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController-UISetup.swift"; sourceTree = "<group>"; };
-		1626D9071F9CAF3900E99ADE /* CheckoutViewController-TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController-TableView.swift"; sourceTree = "<group>"; };
-		1626D9081F9CAF3900E99ADE /* CheckoutItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemTableViewCell.swift; sourceTree = "<group>"; };
-		1626D9091F9CAF3900E99ADE /* CheckoutViewController-Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController-Cart.swift"; sourceTree = "<group>"; };
-		1626D90A1F9CAF3900E99ADE /* CheckoutCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCardTableViewCell.swift; sourceTree = "<group>"; };
-		1626D90B1F9CAF3900E99ADE /* CheckoutViewController-MenuItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController-MenuItemDetail.swift"; sourceTree = "<group>"; };
-		1626D90C1F9CAF3900E99ADE /* CheckoutViewController-UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController-UISetup.swift"; sourceTree = "<group>"; };
-		1626D90D1F9CAF3900E99ADE /* CheckoutTotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTotalTableViewCell.swift; sourceTree = "<group>"; };
-		1626D90E1F9CAF3900E99ADE /* CheckoutCommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCommentsTableViewCell.swift; sourceTree = "<group>"; };
 		1674C13A1F9C3C3600F97573 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		16845C381F9BC4EE00CFD379 /* Money2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money2020.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16845C3B1F9BC4EE00CFD379 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,10 +205,10 @@
 		1626D9101F9CAF3B00E99ADE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				1626D90A1F9CAF3900E99ADE /* CheckoutCardTableViewCell.swift */,
-				1626D90E1F9CAF3900E99ADE /* CheckoutCommentsTableViewCell.swift */,
-				1626D9081F9CAF3900E99ADE /* CheckoutItemTableViewCell.swift */,
-				1626D90D1F9CAF3900E99ADE /* CheckoutTotalTableViewCell.swift */,
+				1604A55A1F9CB0A900833EA7 /* CheckoutCardTableViewCell.swift */,
+				1604A55C1F9CB0A900833EA7 /* CheckoutCommentsTableViewCell.swift */,
+				1604A55D1F9CB0A900833EA7 /* CheckoutItemTableViewCell.swift */,
+				1604A55B1F9CB0A900833EA7 /* CheckoutTotalTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -406,12 +414,12 @@
 		169FF6D21F9C19CF00048765 /* CheckoutViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1604A5611F9CB0B000833EA7 /* CheckoutViewController-Cart.swift */,
+				1604A5621F9CB0B000833EA7 /* CheckoutViewController-MenuItemDetail.swift */,
+				1604A55F1F9CB0AF00833EA7 /* CheckoutViewController-TableView.swift */,
+				1604A55E1F9CB0AF00833EA7 /* CheckoutViewController-UISetup.swift */,
+				1604A5601F9CB0AF00833EA7 /* CheckoutViewController.swift */,
 				1626D9101F9CAF3B00E99ADE /* Cells */,
-				1626D9091F9CAF3900E99ADE /* CheckoutViewController-Cart.swift */,
-				1626D90B1F9CAF3900E99ADE /* CheckoutViewController-MenuItemDetail.swift */,
-				1626D9071F9CAF3900E99ADE /* CheckoutViewController-TableView.swift */,
-				1626D90C1F9CAF3900E99ADE /* CheckoutViewController-UISetup.swift */,
-				1604A5581F9CAFFC00833EA7 /* CheckoutViewController.swift */,
 			);
 			path = CheckoutViewController;
 			sourceTree = "<group>";
@@ -782,18 +790,25 @@
 				1626D9021F9C9DB300E99ADE /* MenuViewController-Search.swift in Sources */,
 				16845C901F9BF46200CFD379 /* DateTransform.swift in Sources */,
 				16845C791F9BC9AE00CFD379 /* Order.swift in Sources */,
+				1604A5671F9CB0FF00833EA7 /* CheckoutViewController-Cart.swift in Sources */,
 				16845C701F9BC69200CFD379 /* MenuItem.swift in Sources */,
+				1604A56F1F9CB10600833EA7 /* CheckoutTotalTableViewCell.swift in Sources */,
 				16845C741F9BC6A100CFD379 /* Restaurant.swift in Sources */,
 				16845C871F9BF24C00CFD379 /* RestaurantDBSchema.swift in Sources */,
 				169FF6E01F9C2BDF00048765 /* InstantAPIClient.swift in Sources */,
+				1604A5681F9CB0FF00833EA7 /* CheckoutViewController-MenuItemDetail.swift in Sources */,
 				169FF6E41F9C2C7100048765 /* Constants.swift in Sources */,
 				16845C8D1F9BF26600CFD379 /* OrderItemDBSchema.swift in Sources */,
+				1604A56A1F9CB0FF00833EA7 /* CheckoutViewController-UISetup.swift in Sources */,
+				1604A56D1F9CB10600833EA7 /* CheckoutCommentsTableViewCell.swift in Sources */,
 				1626D8FB1F9C7D2200E99ADE /* NotificationTable.swift in Sources */,
+				1604A56B1F9CB10300833EA7 /* CheckoutViewController.swift in Sources */,
 				16845C891F9BF25400CFD379 /* UserDBSchema.swift in Sources */,
 				169FF6D81F9C19EE00048765 /* InitialViewController.swift in Sources */,
 				169FF6DA1F9C1AAC00048765 /* MenuItemCollectionViewCell.swift in Sources */,
 				1626D9041F9C9E9D00E99ADE /* MenuViewController-MenuItem.swift in Sources */,
 				169FF6D61F9C19E200048765 /* MenuViewController.swift in Sources */,
+				1604A5691F9CB0FF00833EA7 /* CheckoutViewController-TableView.swift in Sources */,
 				169FF6DC1F9C1B4100048765 /* MenuItemDetailView.swift in Sources */,
 				16845C8B1F9BF25D00CFD379 /* OrderDBSchema.swift in Sources */,
 				169FF6DE1F9C1BA600048765 /* Modalview.swift in Sources */,
@@ -801,15 +816,16 @@
 				16845C851F9BF24600CFD379 /* MenuItemDBSchema.swift in Sources */,
 				16845C441F9BC4EE00CFD379 /* Money2020.xcdatamodeld in Sources */,
 				16AEF88A1F9C38DA002A8E99 /* MenuHeaderCollectionReusableView.swift in Sources */,
+				1604A56E1F9CB10600833EA7 /* CheckoutItemTableViewCell.swift in Sources */,
 				16845C721F9BC69A00CFD379 /* User.swift in Sources */,
 				16845C7D1F9BEE7B00CFD379 /* OrderItem.swift in Sources */,
 				16845C7B1F9BE4B200CFD379 /* DBUtils.swift in Sources */,
 				1626D8F71F9C76FF00E99ADE /* FaceIdHelper.swift in Sources */,
 				16845C3C1F9BC4EE00CFD379 /* AppDelegate.swift in Sources */,
-				1604A5591F9CAFFC00833EA7 /* CheckoutViewController.swift in Sources */,
 				1626D8F91F9C7D0300E99ADE /* FaceIdService.swift in Sources */,
 				1616E11A1F9C596200B2943D /* PaymentHelper.swift in Sources */,
 				1626D8FF1F9C9D1F00E99ADE /* MenuViewController-CollectionView.swift in Sources */,
+				1604A56C1F9CB10600833EA7 /* CheckoutCardTableViewCell.swift in Sources */,
 				169FF6E21F9C2C0600048765 /* InstantLocalStore.swift in Sources */,
 				1674C13B1F9C3C3600F97573 /* StatusView.swift in Sources */,
 			);
