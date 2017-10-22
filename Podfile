@@ -12,6 +12,7 @@ target 'Money2020' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+  pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
   pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift.git', :branch => 'feature/swift-3'
   pod "MXParallaxHeader"
   pod 'BBBadgeBarButtonItem'
