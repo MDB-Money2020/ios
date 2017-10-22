@@ -15,7 +15,7 @@ extension MenuViewController {
     func setupSearchBar() {
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let navBarHeight = navigationController?.navigationBar.frame.height
-        headerView = UIView(frame: CGRect(x: -1, y: statusBarHeight + navBarHeight! + view.frame.height/3, width: view.frame.width + 2, height: 45))
+        headerView = UIView(frame: CGRect(x: -1, y: view.frame.height/3, width: view.frame.width + 2, height: 45))
         headerView.layer.borderColor = UIColor(hex: "#EEEFF0").cgColor
         headerView.layer.borderWidth = 0.8
         headerView.backgroundColor = .white
@@ -58,7 +58,9 @@ extension MenuViewController {
                 }
             }
         }
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.updateCategoryVCs(categoryToMenuItems: self.filteredCategoryToMenuItem)
+        }
     }
     
 }
@@ -111,7 +113,9 @@ extension MenuViewController: UISearchBarDelegate, UITextFieldDelegate {
         searchBar.showsCancelButton = false
         searchBar.endEditing(true)
         filteredCategoryToMenuItem = categoryToMenuItem
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.updateCategoryVCs(categoryToMenuItems: self.filteredCategoryToMenuItem)
+        }
     }
     
 }

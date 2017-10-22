@@ -29,7 +29,7 @@
 		1626D8F91F9C7D0300E99ADE /* FaceIdService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D8F81F9C7D0300E99ADE /* FaceIdService.swift */; };
 		1626D8FB1F9C7D2200E99ADE /* NotificationTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D8FA1F9C7D2200E99ADE /* NotificationTable.swift */; };
 		1626D8FD1F9C972100E99ADE /* FaceRecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D8FC1F9C972100E99ADE /* FaceRecView.swift */; };
-		1626D8FF1F9C9D1F00E99ADE /* MenuViewController-CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D8FE1F9C9D1F00E99ADE /* MenuViewController-CollectionView.swift */; };
+		1626D8FF1F9C9D1F00E99ADE /* MenuCategoryViewController-CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D8FE1F9C9D1F00E99ADE /* MenuCategoryViewController-CollectionView.swift */; };
 		1626D9021F9C9DB300E99ADE /* MenuViewController-Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D9011F9C9DB300E99ADE /* MenuViewController-Search.swift */; };
 		1626D9041F9C9E9D00E99ADE /* MenuViewController-MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D9031F9C9E9D00E99ADE /* MenuViewController-MenuItem.swift */; };
 		1626D9061F9C9F0D00E99ADE /* MenuViewController-UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D9051F9C9F0D00E99ADE /* MenuViewController-UISetup.swift */; };
@@ -105,7 +105,7 @@
 		1626D8F81F9C7D0300E99ADE /* FaceIdService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIdService.swift; sourceTree = "<group>"; };
 		1626D8FA1F9C7D2200E99ADE /* NotificationTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTable.swift; sourceTree = "<group>"; };
 		1626D8FC1F9C972100E99ADE /* FaceRecView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRecView.swift; sourceTree = "<group>"; };
-		1626D8FE1F9C9D1F00E99ADE /* MenuViewController-CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController-CollectionView.swift"; sourceTree = "<group>"; };
+		1626D8FE1F9C9D1F00E99ADE /* MenuCategoryViewController-CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuCategoryViewController-CollectionView.swift"; sourceTree = "<group>"; };
 		1626D9011F9C9DB300E99ADE /* MenuViewController-Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController-Search.swift"; sourceTree = "<group>"; };
 		1626D9031F9C9E9D00E99ADE /* MenuViewController-MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController-MenuItem.swift"; sourceTree = "<group>"; };
 		1626D9051F9C9F0D00E99ADE /* MenuViewController-UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuViewController-UISetup.swift"; sourceTree = "<group>"; };
@@ -405,11 +405,11 @@
 			children = (
 				1626D9001F9C9D9900E99ADE /* Cells */,
 				169FF6D51F9C19E200048765 /* MenuViewController.swift */,
-				1626D8FE1F9C9D1F00E99ADE /* MenuViewController-CollectionView.swift */,
 				1626D9011F9C9DB300E99ADE /* MenuViewController-Search.swift */,
 				1626D9031F9C9E9D00E99ADE /* MenuViewController-MenuItem.swift */,
 				1626D9051F9C9F0D00E99ADE /* MenuViewController-UISetup.swift */,
 				1604A5701F9CC62700833EA7 /* MenuCategoryViewController.swift */,
+				1626D8FE1F9C9D1F00E99ADE /* MenuCategoryViewController-CollectionView.swift */,
 			);
 			path = MenuViewController;
 			sourceTree = "<group>";
@@ -830,7 +830,7 @@
 				16845C3C1F9BC4EE00CFD379 /* AppDelegate.swift in Sources */,
 				1626D8F91F9C7D0300E99ADE /* FaceIdService.swift in Sources */,
 				1616E11A1F9C596200B2943D /* PaymentHelper.swift in Sources */,
-				1626D8FF1F9C9D1F00E99ADE /* MenuViewController-CollectionView.swift in Sources */,
+				1626D8FF1F9C9D1F00E99ADE /* MenuCategoryViewController-CollectionView.swift in Sources */,
 				1604A56C1F9CB10600833EA7 /* CheckoutCardTableViewCell.swift in Sources */,
 				169FF6E21F9C2C0600048765 /* InstantLocalStore.swift in Sources */,
 				1674C13B1F9C3C3600F97573 /* StatusView.swift in Sources */,

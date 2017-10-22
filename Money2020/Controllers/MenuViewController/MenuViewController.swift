@@ -16,13 +16,17 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
     
     var restaurant: Restaurant!
     var user: User?
-    var collectionView: UICollectionView!
+    
     var categoryToMenuItem = [String: [MenuItem]]()
     var filteredCategoryToMenuItem = [String: [MenuItem]]()
     var modalView: ModalView!
     var itemDetailView: MenuItemDetailView!
     var checkoutButton: UIButton!
     var numLabel: UILabel!
+    let categories = ["Suggestions", "Appetizers", "Entrees", "Salads", "Desserts"]
+    
+    var pageMenu : CAPSPageMenu?
+    var controllerArray : [MenuCategoryViewController] = []
     
     //Search
     var searchBar: UISearchBar!
@@ -40,7 +44,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         setupNavbar()
         setupSearchBar()
         setupFaceRecView()
-        setupCollectionView()
+        setupPageMenu()
         setupCheckoutButton()
         loadMenu()
     }
@@ -81,7 +85,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
             self.filteredCategoryToMenuItem = self.categoryToMenuItem
         
             DispatchQueue.main.async {
-                self.collectionView.reloadData()
+                self.updateCategoryVCs(categoryToMenuItems: self.filteredCategoryToMenuItem)
             }
         }.catch(policy: .allErrors) { error in
             log.error(error.localizedDescription)
@@ -105,7 +109,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
             }
             self.filteredCategoryToMenuItem = self.categoryToMenuItem
             DispatchQueue.main.async {
-                self.collectionView.reloadData()
+                self.updateCategoryVCs(categoryToMenuItems: self.filteredCategoryToMenuItem)
             }
         }.catch(policy: .allErrors) { error in
             log.error(error.localizedDescription)

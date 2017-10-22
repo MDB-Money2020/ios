@@ -8,17 +8,20 @@
 
 import UIKit
 
+protocol MenuCategoryViewControllerDelegate {
+    func tappedMenuItem(item: MenuItem)
+}
 class MenuCategoryViewController: UIViewController {
-
+    
+    var menuItems = [MenuItem]()
+    var collectionView: UICollectionView!
+    var delegate: MenuCategoryViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupCollectionView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 }

@@ -85,7 +85,6 @@ open class CAPSPageMenu: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         controllerArray = viewControllers
-        
         self.view.frame = frame
     }
     
