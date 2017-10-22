@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '98731A74A4A5C1E28A72BE8E1990360D'
+               BlueprintIdentifier = 'CEFA1D436B227A5E788F0B4F60DD4E0E'
                BlueprintName = 'PromiseKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'PromiseKit.framework'>

@@ -17,6 +17,7 @@
 		1604A56D1F9CB10600833EA7 /* CheckoutCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A55C1F9CB0A900833EA7 /* CheckoutCommentsTableViewCell.swift */; };
 		1604A56E1F9CB10600833EA7 /* CheckoutItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A55D1F9CB0A900833EA7 /* CheckoutItemTableViewCell.swift */; };
 		1604A56F1F9CB10600833EA7 /* CheckoutTotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A55B1F9CB0A900833EA7 /* CheckoutTotalTableViewCell.swift */; };
+		1604A5711F9CC62700833EA7 /* MenuCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604A5701F9CC62700833EA7 /* MenuCategoryViewController.swift */; };
 		1616E1051F9C507700B2943D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1616E1041F9C4FFC00B2943D /* GoogleService-Info.plist */; };
 		1616E10C1F9C511C00B2943D /* SF-UI-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1616E10B1F9C510000B2943D /* SF-UI-Text-Bold.otf */; };
 		1616E10D1F9C511C00B2943D /* SF-UI-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1616E1081F9C510000B2943D /* SF-UI-Text-Light.otf */; };
@@ -92,6 +93,7 @@
 		1604A5601F9CB0AF00833EA7 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		1604A5611F9CB0B000833EA7 /* CheckoutViewController-Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController-Cart.swift"; sourceTree = "<group>"; };
 		1604A5621F9CB0B000833EA7 /* CheckoutViewController-MenuItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckoutViewController-MenuItemDetail.swift"; sourceTree = "<group>"; };
+		1604A5701F9CC62700833EA7 /* MenuCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryViewController.swift; sourceTree = "<group>"; };
 		1616E1041F9C4FFC00B2943D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1616E1071F9C510000B2943D /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		1616E1081F9C510000B2943D /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 				1626D9011F9C9DB300E99ADE /* MenuViewController-Search.swift */,
 				1626D9031F9C9E9D00E99ADE /* MenuViewController-MenuItem.swift */,
 				1626D9051F9C9F0D00E99ADE /* MenuViewController-UISetup.swift */,
+				1604A5701F9CC62700833EA7 /* MenuCategoryViewController.swift */,
 			);
 			path = MenuViewController;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				"${BUILT_PRODUCTS_DIR}/KILabel/KILabel.framework",
 				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PageMenu/PageMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
@@ -699,6 +703,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KILabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PageMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
@@ -817,6 +822,7 @@
 				16845C441F9BC4EE00CFD379 /* Money2020.xcdatamodeld in Sources */,
 				16AEF88A1F9C38DA002A8E99 /* MenuHeaderCollectionReusableView.swift in Sources */,
 				1604A56E1F9CB10600833EA7 /* CheckoutItemTableViewCell.swift in Sources */,
+				1604A5711F9CC62700833EA7 /* MenuCategoryViewController.swift in Sources */,
 				16845C721F9BC69A00CFD379 /* User.swift in Sources */,
 				16845C7D1F9BEE7B00CFD379 /* OrderItem.swift in Sources */,
 				16845C7B1F9BE4B200CFD379 /* DBUtils.swift in Sources */,

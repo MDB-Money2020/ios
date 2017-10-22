@@ -10,6 +10,7 @@ import UIKit
 import PromiseKit
 import Spring
 import AVFoundation
+import PageMenu
 
 class MenuViewController: UIViewController, UINavigationControllerDelegate {
     

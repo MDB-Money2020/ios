@@ -30,7 +30,7 @@ target 'Money2020' do
   pod 'ObjectMapper'
   pod 'DZNEmptyDataSet'
   pod 'KILabel', '1.0.0'
-
+  pod 'PageMenu'
 
 
 
