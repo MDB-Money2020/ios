@@ -37,4 +37,5 @@ class InstantLocalStore {
     static func clearCurrOrder(atRestaurantId: String) {
         UserDefaults.standard.removeObject(forKey: "\(atRestaurantId)/currOrder")
     }
+    
 }

@@ -59,14 +59,14 @@ class StatusView: UIView {
         inView.addSubview(self)
         inView.bringSubview(toFront: self)
         activityIndicator.startAnimating()
-        SpringAnimation.springEaseIn(duration: 0.4, animations: { _ in
+        SpringAnimation.springEaseIn(duration: 0.4, animations: { 
             self.activityIndicator.alpha = 1
             self.overlayView.alpha = 0.5
         })
     }
     
     func displayMessage(text: String) {
-        SpringAnimation.springEaseInOut(duration: 0.4, animations: { _ in
+        SpringAnimation.springEaseInOut(duration: 0.4, animations: { 
             self.sentLabel.text = text
             self.sentLabel.alpha = 1
             self.sentLabel.sizeToFit()
@@ -81,9 +81,9 @@ class StatusView: UIView {
         }
         semaphore.wait(timeout: .now() + .seconds(5))
         dismissAvailable = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: { _ in
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: { () -> Void in
             
-            SpringAnimation.springWithCompletion(duration: 0.4, animations: { _ in
+            SpringAnimation.springWithCompletion(duration: 0.4, animations: { 
                 self.alpha = 0
                 self.activityIndicator.alpha = 0
                 self.sentLabel.alpha = 0

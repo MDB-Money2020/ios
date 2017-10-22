@@ -80,7 +80,7 @@ class MenuItemDetailView: UIView {
         paragraphStyle2.alignment = .center
         var attrString2 = NSMutableAttributedString(string: item.description!)
         
-        attrString2.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle2, range:NSMakeRange(0, attrString2.length))
+        attrString2.addAttribute(NSAttributedStringKey.paragraphStyle, value:paragraphStyle2, range:NSMakeRange(0, attrString2.length))
         descriptionLabel.attributedText = attrString2
         descriptionLabel.sizeToFit()
         addSubview(descriptionLabel)
@@ -135,11 +135,11 @@ class MenuItemDetailView: UIView {
         quantityLabel.text = String(quantity)
     }
     
-    func cancelButtonTapped() {
+    @objc func cancelButtonTapped() {
         delegate?.dismissMenuItemDetailView()
     }
     
-    func addToCartButtonTapped() {
+    @objc func addToCartButtonTapped() {
         if mode == .add {
             delegate?.addItemToCart(item: menuItem, quantity: quantity)
         } else if mode == .updateAdd {
@@ -147,12 +147,12 @@ class MenuItemDetailView: UIView {
         } 
     }
     
-    func addQuantity() {
+    @objc func addQuantity() {
         quantity += 1
         quantityLabel.text = String(quantity)
     }
     
-    func subQuantity() {
+    @objc func subQuantity() {
         if quantity == 0 {
             return
         }

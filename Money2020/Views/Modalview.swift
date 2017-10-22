@@ -53,7 +53,7 @@ class ModalView: UIView {
         superview!.addSubview(overlay)
         superview?.bringSubview(toFront: overlay)
         
-        SpringAnimation.springWithCompletion(duration: 0.2, animations: { _ in
+        SpringAnimation.springWithCompletion(duration: 0.2, animations: { 
             self.overlay.alpha = 1
         }, completion: { _ -> Void in
             if self.showAnimation == .SlideFromBottom {
@@ -63,7 +63,7 @@ class ModalView: UIView {
         
     }
     
-    func dismiss() {
+    @objc func dismiss() {
         if dismissAnimation == .FadeOut {
             fadeOut()
         }
@@ -75,7 +75,7 @@ class ModalView: UIView {
         modalView.frame.origin.y = superview!.frame.maxY
         superview?.addSubview(modalView)
         superview?.bringSubview(toFront: modalView)
-        SpringAnimation.springWithCompletion(duration: showAnimationDuration, animations: { _ in
+        SpringAnimation.springWithCompletion(duration: showAnimationDuration, animations: { 
             self.modalView.center = (self.superview?.center)!
         }, completion: { Void in
             
@@ -83,7 +83,7 @@ class ModalView: UIView {
     }
     
     private func fadeOut() {
-        SpringAnimation.springWithCompletion(duration: dismissAnimationDuration, animations: { _ in
+        SpringAnimation.springWithCompletion(duration: dismissAnimationDuration, animations: { 
             self.modalView.alpha = 0
             self.overlay.alpha = 0
         }, completion: { _ -> Void in
