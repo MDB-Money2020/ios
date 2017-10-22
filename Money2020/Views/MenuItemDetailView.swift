@@ -37,13 +37,13 @@ class MenuItemDetailView: UIView {
     
     init(frame: CGRect, item: MenuItem, mode: MenuItemDetailViewMode) {
         super.init(frame: frame)
-        layer.cornerRadius = 3
+        layer.cornerRadius = 10
         clipsToBounds = true
         backgroundColor = .white
         menuItem = item
         self.mode = mode
         
-        foodImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.width, height: 220))
+        foodImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.width, height: 320))
         foodImageView.contentMode = .scaleAspectFill
         foodImageView.clipsToBounds = true
         addSubview(foodImageView)
@@ -60,8 +60,8 @@ class MenuItemDetailView: UIView {
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         addSubview(cancelButton)
         
-        nameLabel = UILabel(frame: CGRect(x: 20, y: foodImageView.frame.maxY + 30, width: frame.width - 40, height: 18))
-        nameLabel.font = UIFont(name: "SFUIText-Regular", size: 17)
+        nameLabel = UILabel(frame: CGRect(x: 20, y: foodImageView.frame.maxY + 30, width: frame.width - 40, height: 60))
+        nameLabel.font = UIFont(name: "SFUIText-Regular", size: 28)
         nameLabel.textColor = UIColor(hex: "#212A31")
         nameLabel.numberOfLines = 0
         nameLabel.lineBreakMode = .byWordWrapping
@@ -69,14 +69,14 @@ class MenuItemDetailView: UIView {
         nameLabel.textAlignment = .center
         addSubview(nameLabel)
         
-        descriptionLabel = UILabel(frame: CGRect(x: 20, y: nameLabel.frame.maxY + 25, width: frame.width - 40, height: 60))
-        descriptionLabel.font = UIFont(name: "SFUIText-Light", size: 13)
+        descriptionLabel = UILabel(frame: CGRect(x: 30, y: nameLabel.frame.maxY + 25, width: frame.width - 60, height: 300))
+        descriptionLabel.font = UIFont(name: "SFUIText-Light", size: 21)
         descriptionLabel.textColor = UIColor(hex: "#4F606E")
         descriptionLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byWordWrapping
         let paragraphStyle2 = NSMutableParagraphStyle()
-        paragraphStyle2.lineSpacing = 6
+        paragraphStyle2.lineSpacing = 8
         paragraphStyle2.alignment = .center
         var attrString2 = NSMutableAttributedString(string: item.description!)
         
@@ -85,33 +85,35 @@ class MenuItemDetailView: UIView {
         descriptionLabel.sizeToFit()
         addSubview(descriptionLabel)
         
-        minusButton = UIButton(frame: CGRect(x: (frame.width - 120)/2, y: descriptionLabel.frame.maxY + 25, width: 25, height: 25))
+        minusButton = UIButton(frame: CGRect(x: (frame.width - 170)/2, y: descriptionLabel.frame.maxY + 40, width: 50, height: 50))
         minusButton.backgroundColor = UIColor(red:0.95, green:0.63, blue:0.18, alpha:1.0)
         minusButton.setTitle("-", for: .normal)
         minusButton.setTitleColor(.white, for: .normal)
         minusButton.setTitleColor(.lightGray, for: .disabled)
+        minusButton.titleLabel?.font = UIFont(name: "SFUIText-Regular", size: 25)
         minusButton.layer.cornerRadius = minusButton.frame.width/2
         minusButton.addTarget(self, action:#selector(subQuantity), for: .touchUpInside)
         addSubview(minusButton)
         
-        quantityLabel = UILabel(frame: CGRect(x: minusButton.frame.maxX + 10, y: minusButton.frame.minY, width: 40, height: 25))
-        quantityLabel.font = UIFont(name: "SFUIText-Regular", size: 20)
+        quantityLabel = UILabel(frame: CGRect(x: minusButton.frame.maxX + 10, y: minusButton.frame.minY, width: 40, height: 50))
+        quantityLabel.font = UIFont(name: "SFUIText-Regular", size: 28)
         quantityLabel.textColor = .darkGray
         quantityLabel.textAlignment = .center
         quantityLabel.adjustsFontSizeToFitWidth = true
         quantityLabel.text = String(quantity)
         addSubview(quantityLabel)
         
-        plusButton = UIButton(frame: CGRect(x: quantityLabel.frame.maxX + 10, y: minusButton.frame.minY, width: 25, height: 25))
+        plusButton = UIButton(frame: CGRect(x: quantityLabel.frame.maxX + 10, y: minusButton.frame.minY, width: 50, height: 50))
         plusButton.backgroundColor = UIColor(red:0.95, green:0.63, blue:0.18, alpha:1.0)
         plusButton.setTitle("+", for: .normal)
+        plusButton.titleLabel?.font = UIFont(name: "SFUIText-Regular", size: 25)
         plusButton.setTitleColor(.white, for: .normal)
         plusButton.setTitleColor(.lightGray, for: .disabled)
         plusButton.layer.cornerRadius = plusButton.frame.width/2
         plusButton.addTarget(self, action:#selector(addQuantity), for: .touchUpInside)
         addSubview(plusButton)
         
-        addToCartButton = UIButton(frame: CGRect(x: 0, y: frame.height - 50, width: frame.width, height: 50))
+        addToCartButton = UIButton(frame: CGRect(x: 0, y: frame.height - 80, width: frame.width, height: 80))
         addToCartButton.backgroundColor = UIColor(hex: "#6ECC3D")
         if mode == .add {
             addToCartButton.setTitle("ADD TO CART", for: .normal)
@@ -120,7 +122,7 @@ class MenuItemDetailView: UIView {
         }
         addToCartButton.setTitleColor(.white, for: .normal)
         addToCartButton.setTitleColor(.lightGray, for: .disabled)
-        addToCartButton.titleLabel?.font = UIFont(name: "SFUIText-Medium", size: 14)
+        addToCartButton.titleLabel?.font = UIFont(name: "SFUIText-Medium", size: 21)
         addToCartButton.addTarget(self, action: #selector(addToCartButtonTapped), for: .touchUpInside)
         addSubview(addToCartButton)
         

@@ -16,7 +16,7 @@ extension CheckoutViewController {
         let navBarHeight = navigationController?.navigationBar.frame.height
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         var mode: MenuItemDetailViewMode = .add
-        itemDetailView = MenuItemDetailView(frame: CGRect(x: 15, y: 70, width: view.frame.width - 30, height: view.frame.height - 75 - (110 - navBarHeight! - statusBarHeight)), item: forItem, mode: mode)
+        itemDetailView = MenuItemDetailView(frame: CGRect(x: 200, y: 70, width: view.frame.width - 400, height: view.frame.height - 75 - (500 - navBarHeight! - statusBarHeight)), item: forItem, mode: mode)
         itemDetailView.delegate = self
         itemDetailView.setQuantity(quantity: (selectedItem?.quantity)!)
         modalView = ModalView(view: itemDetailView)

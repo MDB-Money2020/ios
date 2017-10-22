@@ -58,7 +58,7 @@ extension MenuViewController {
         let navBarHeight = navigationController?.navigationBar.frame.height
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let mode: MenuItemDetailViewMode = .add
-        itemDetailView = MenuItemDetailView(frame: CGRect(x: 15, y: 70, width: view.frame.width - 30, height: view.frame.height - 75 - (110 - navBarHeight! - statusBarHeight)), item: forItem, mode: mode)
+        itemDetailView = MenuItemDetailView(frame: CGRect(x: 200, y: 70, width: view.frame.width - 400, height: view.frame.height - 75 - (500 - navBarHeight! - statusBarHeight)), item: forItem, mode: mode)
         itemDetailView.delegate = self
         modalView = ModalView(view: itemDetailView)
         modalView.dismissAnimation = .FadeOut

@@ -14,14 +14,14 @@ extension MenuViewController {
     
     func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 30
+        layout.minimumInteritemSpacing = 30
         collectionView = UICollectionView(frame: CGRect(x: 0, y: headerView.frame.maxY, width: view.frame.width, height: view.frame.height - headerView.frame.maxY), collectionViewLayout: layout)
         collectionView.register(MenuItemCollectionViewCell.self, forCellWithReuseIdentifier: "menuItemCell")
         collectionView.register(MenuHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = UIColor(hex: "#F7F7F7")
         view.addSubview(collectionView)
     }
     
@@ -56,7 +56,6 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = cell as! MenuItemCollectionViewCell
         let item = filteredCategoryToMenuItem[Array(filteredCategoryToMenuItem.keys)[indexPath.section]]?[indexPath.item]
         cell.nameLabel.text = item?.title!
-        cell.descriptionLabel.text = item?.description!
         cell.priceLabel.text = InstantUtils.doubleToCurrencyString(val: (item?.price)!)
         
         firstly {
@@ -70,7 +69,7 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 130)
+        return CGSize(width: (view.frame.width - 90)/2, height: 450)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -104,8 +103,8 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let numSections = filteredCategoryToMenuItem.keys.count
         if section == numSections - 1 {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
+            return UIEdgeInsets(top: 0, left: 30, bottom: 30, right: 30)
         }
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
     }
 }

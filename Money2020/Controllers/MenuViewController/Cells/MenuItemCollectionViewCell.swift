@@ -11,40 +11,44 @@ import UIKit
 class MenuItemCollectionViewCell: UICollectionViewCell {
     
     var nameLabel: UILabel!
-    var descriptionLabel: UILabel!
     var priceLabel: UILabel!
     var foodImageView: UIImageView!
-    var separator: UIView!
+    var overlayView: UIImageView!
     
     override func awakeFromNib() {
         
-        foodImageView = UIImageView(frame: CGRect(x: frame.width - 130, y: 10, width: 110, height: 85))
+        contentView.layer.cornerRadius = 10.0
+        contentView.layer.borderWidth = 1.0
+        contentView.layer.borderColor = UIColor.clear.cgColor
+        contentView.layer.masksToBounds = true
+        layer.shadowColor = UIColor.darkGray.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        layer.shadowRadius = 5
+        layer.shadowOpacity = 0.85
+        layer.masksToBounds = false
+        layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
+        
+        foodImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
         foodImageView.contentMode = .scaleAspectFill
         foodImageView.clipsToBounds = true
         contentView.addSubview(foodImageView)
         
-        nameLabel = UILabel(frame: CGRect(x: 15, y: 10, width: frame.width - foodImageView.frame.minX - 15, height: 18))
-        nameLabel.font = UIFont(name: "SFUIText-Regular", size: 14)
-        nameLabel.textColor = UIColor(hex: "#212A31")
+        overlayView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        overlayView.contentMode = .scaleAspectFill
+        overlayView.image = UIImage(named: "overlay")
+        overlayView.clipsToBounds = true
+        contentView.addSubview(overlayView)
+        
+        nameLabel = UILabel(frame: CGRect(x: 30, y: foodImageView.frame.maxY - 110, width: frame.width - 60, height: 60))
+        nameLabel.font = UIFont(name: "SFUIText-Bold", size: 28)
+        nameLabel.textColor = .white
         contentView.addSubview(nameLabel)
         
-        descriptionLabel = UILabel(frame: CGRect(x: 15, y: nameLabel.frame.maxY + 5, width: frame.width - 140 - 15, height: 40))
-        descriptionLabel.font = UIFont(name: "SFUIText-Light", size: 13)
-        descriptionLabel.textColor = UIColor(hex: "#4F606E")
-        descriptionLabel.numberOfLines = 2
-        descriptionLabel.lineBreakMode = .byWordWrapping
-        contentView.addSubview(descriptionLabel)
-        
-        priceLabel = UILabel(frame: CGRect(x: 15, y: descriptionLabel.frame.maxY + 5, width: frame.width - 140 - 15, height: 18))
-        priceLabel.font = UIFont(name: "SFUIText-Light", size: 13)
-        priceLabel.textColor = UIColor(hex: "#4F606E")
+        priceLabel = UILabel(frame: CGRect(x: 30, y: nameLabel.frame.maxY, width: frame.width - 60, height: 18))
+        priceLabel.font = UIFont(name: "SFUIText-Semibold", size: 25)
+        priceLabel.textColor = UIColor(hex: "#53CFAA")
         contentView.addSubview(priceLabel)
         
-        separator = UIView(frame: CGRect(x: 10, y: frame.height - 1, width: frame.width - 20, height: 0.8))
-        separator.backgroundColor = UIColor(hex: "#EEEFF0")
-        separator.layer.cornerRadius = 0.4
-        separator.clipsToBounds = true
-        contentView.addSubview(separator)
         
     }
 }
