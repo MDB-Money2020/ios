@@ -66,7 +66,7 @@
         <!--Checkout View Controller-->
         <scene sceneID="7b5-TV-LSj">
             <objects>
-                <viewController id="n3V-1z-ZFn" customClass="CheckoutViewController" sceneMemberID="viewController">
+                <viewController id="n3V-1z-ZFn" customClass="CheckoutViewController" customModule="Money2020" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yWu-7i-faT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
