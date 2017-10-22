@@ -11,7 +11,7 @@ import UIKit
 class CheckoutOrderDetailsTitleTableViewCell: UITableViewCell {
     
     var title: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,11 +22,11 @@ class CheckoutOrderDetailsTitleTableViewCell: UITableViewCell {
         title.textColor = .black
         contentView.addSubview(title)
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }
