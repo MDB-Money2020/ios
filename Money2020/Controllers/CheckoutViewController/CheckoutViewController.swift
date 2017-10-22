@@ -5,13 +5,12 @@
 //  Created by Akkshay Khoslaa on 10/21/17.
 //  Copyright © 2017 Akkshay Khoslaa. All rights reserved.
 //
-
 import UIKit
 import PromiseKit
 import Spring
 
 class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
-
+    
     var restaurant: Restaurant!
     var tableView: UITableView!
     var currOrder: Order?
@@ -27,7 +26,7 @@ class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
@@ -61,11 +60,11 @@ class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     //Segues and App Flow
-    @objc   
+    @objc
     func dismissVC() {
         dismiss(animated: true, completion: nil)
     }
-
+    
     
     @objc func placeOrder() {
         currOrder = InstantLocalStore.getCurrOrder(atRestaurantId: restaurant.restaurantId!)
@@ -81,13 +80,13 @@ class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
         }
         firstly {
             return PaymentHelper.placeOrder(order: currOrder!)
-        }.then { _ -> Void in
-            InstantLocalStore.clearCurrOrder(atRestaurantId: self.restaurant.restaurantId!)
-            self.placeOrderButton.isHidden = true
-            statusView.displayMessage(text: "Order Placed!")
-            statusView.hideAfter(delay: 0.75, completion: {  () -> Void in
-                self.dismiss(animated: true, completion: nil)
-            })
+            }.then { _ -> Void in
+                InstantLocalStore.clearCurrOrder(atRestaurantId: self.restaurant.restaurantId!)
+                self.placeOrderButton.isHidden = true
+                statusView.displayMessage(text: "Order Placed!")
+                statusView.hideAfter(delay: 0.75, completion: {  () -> Void in
+                    self.dismiss(animated: true, completion: nil)
+                })
         }
     }
     
@@ -95,7 +94,7 @@ class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
         view.endEditing(true)
     }
     
-  
+    
 }
 
 //Text View Enhancements
@@ -105,17 +104,14 @@ extension CheckoutViewController: UITextFieldDelegate {
         tableView.addGestureRecognizer(tapGesture)
         activeField = textField
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         tableView.removeGestureRecognizer(tapGesture)
         textField.resignFirstResponder()
         activeField = nil
     }
 }
-
-
-
