@@ -39,11 +39,11 @@ extension CheckoutViewController {
     }
     
     func setupPlaceOrderButton() {
-        placeOrderButton = UIButton(frame: CGRect(x: 0, y: view.frame.height - 100, width: view.frame.width, height: 100))
+        placeOrderButton = UIButton(frame: CGRect(x: 0, y: view.frame.height - 80, width: view.frame.width, height: 80))
         placeOrderButton.backgroundColor = UIColor(hex: "#6ECC3D")
         placeOrderButton.setTitle("PLACE ORDER", for: .normal)
         placeOrderButton.setTitleColor(.white, for: .normal)
-        placeOrderButton.titleLabel?.font = UIFont(name: "SFUIText-Medium", size: 30)
+        placeOrderButton.titleLabel?.font = UIFont(name: "SFUIText-Medium", size: 28)
         placeOrderButton.addTarget(self, action: #selector(placeOrder), for: .touchUpInside)
         placeOrderButton.isHidden = true
         view.addSubview(placeOrderButton)
