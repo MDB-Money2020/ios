@@ -62,7 +62,18 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         removeNotificationObservers()
     }
     
+    
     //MARK: Data Populating Methods
+    
+    func clearData() {
+        categoryToMenuItem = [String: [MenuItem]]()
+        filteredCategoryToMenuItem = [String: [MenuItem]]()
+        InstantLocalStore.clearCurrUserId()
+        InstantLocalStore.clearCurrOrder(atRestaurantId: "-Kx0rrVSISYN1ZmefG8_")
+        user = nil
+        helloView.imageView.image = nil
+        helloView.textLabel.text = "Detecting face..."
+    }
     
     func refresh() {
         updateUIWithCart()
@@ -155,6 +166,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
             let destVC = navVC.topViewController as! CheckoutViewController
             destVC.restaurant = restaurant
             destVC.user = user
+            destVC.delegate = self
         }
     }
     
@@ -170,5 +182,13 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
 extension MenuViewController: FaceRecViewDelegate {
     func handleNewImage(image: UIImage) {
         faceIdService.handle(image: image)
+    }
+}
+
+extension MenuViewController: CheckoutViewControllerDelegate {
+    func didDismiss() {
+        print("calling here too")
+        clearData()
+        refresh()
     }
 }

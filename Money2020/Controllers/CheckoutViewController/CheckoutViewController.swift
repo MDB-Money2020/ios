@@ -8,7 +8,9 @@
 import UIKit
 import PromiseKit
 import Spring
-
+protocol CheckoutViewControllerDelegate {
+    func didDismiss()
+}
 class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
     var user: User!
     var restaurant: Restaurant!
@@ -22,6 +24,7 @@ class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
     var activeField: UITextField?
     var modalView: ModalView!
     var statusView: StatusView!
+    var delegate: CheckoutViewControllerDelegate?
     
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -86,7 +89,10 @@ class CheckoutViewController: UIViewController, UINavigationControllerDelegate {
                 self.placeOrderButton.isHidden = true
                 statusView.displayMessage(text: "Order Placed!")
                 statusView.hideAfter(delay: 0.75, completion: {  () -> Void in
-                    self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: {
+                        print("calling diddismiss")
+                        self.delegate?.didDismiss()
+                    })
                 })
         }
     }
