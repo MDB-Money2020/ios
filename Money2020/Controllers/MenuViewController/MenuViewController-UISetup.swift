@@ -21,7 +21,7 @@ extension MenuViewController {
     }
     
     func setupFaceRecView() {
-        faceRecView = FaceRecView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/2))
+        faceRecView = FaceRecView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/3))
         faceRecView.delegate = self
         view.addSubview(faceRecView)
     }
