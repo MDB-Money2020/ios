@@ -69,8 +69,10 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         }.then { retrievedItems -> Void in
             for item in retrievedItems {
                 if var items = self.categoryToMenuItem[item.category!] {
-                    items.append(item)
-                    self.categoryToMenuItem[item.category!] = items
+                    if !items.contains(where: { $0.menuItemId == item.menuItemId }) {
+                        items.append(item)
+                        self.categoryToMenuItem[item.category!] = items
+                    }
                 } else {
                     self.categoryToMenuItem[item.category!] = [item]
                 }
@@ -90,7 +92,17 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         firstly {
             return Restaurant.getMenuSuggestions(userId: currUserId, restaurantId: restaurant.restaurantId!)
         }.then { suggestedItems -> Void in
-            self.categoryToMenuItem["Suggestions"] = suggestedItems
+            for item in suggestedItems {
+                if var items = self.categoryToMenuItem["Suggestions"] {
+                    if !items.contains(where: { $0.menuItemId == item.menuItemId }) {
+                        items.append(item)
+                        self.categoryToMenuItem["Suggestions"] = items
+                    }
+                } else {
+                    self.categoryToMenuItem["Suggestions"] = [item]
+                }
+            }
+            self.filteredCategoryToMenuItem = self.categoryToMenuItem
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
