@@ -13,11 +13,11 @@ import PromiseKit
 extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 2 {
+        if section == 3 {
             return orderItems.count
         }
         return 1
@@ -32,8 +32,11 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.awakeFromNib()
-            
-            cell.cardInfoLabel.text = "Visa Card Connected"
+            cell.layer.shadowOffset = CGSize(width: 1.0, height: 0.0)
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowRadius = 5
+            cell.layer.shadowOpacity = 0.25
+
             
             return cell
             
@@ -49,9 +52,10 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.commentsTextField.delegate = self
             
+            
             return cell
             
-        } else if indexPath.section == 3 {
+        } else if indexPath.section == 4 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "totalCell", for: indexPath) as! CheckoutTotalTableViewCell
             
@@ -65,6 +69,15 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.valueLabel.text = InstantUtils.doubleToCurrencyString(val: currOrder!.getTotal())
             
+            return cell
+            
+        } else if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "orderDetailsCell", for: indexPath) as! CheckoutOrderDetailsTitleTableViewCell
+            for subview in cell.contentView.subviews {
+                subview.removeFromSuperview()
+            }
+            cell.awakeFromNib()
+            cell.title.text = "Order Details"
             return cell
             
         } else {
@@ -89,14 +102,16 @@ extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 2 {
-            return 80
+            return 120
         } else if indexPath.section == 0 {
-            return 100
+            return 500
         } else if indexPath.section == 1 {
-            return 80
+            return 140
+        } else if indexPath.section == 3 {
+            return 120
         }
         
-        return 70
+        return 110
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
