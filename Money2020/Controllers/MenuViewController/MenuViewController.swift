@@ -13,47 +13,58 @@ import AVFoundation
 
 class MenuViewController: UIViewController, UINavigationControllerDelegate {
     
-    var collectionView: UICollectionView!
     var restaurant: Restaurant!
     var user: User?
+    var collectionView: UICollectionView!
     var categoryToMenuItem = [String: [MenuItem]]()
     var filteredCategoryToMenuItem = [String: [MenuItem]]()
     var modalView: ModalView!
     var itemDetailView: MenuItemDetailView!
     var checkoutButton: UIButton!
     var numLabel: UILabel!
+    
+    //Search
     var searchBar: UISearchBar!
     var headerView: UIView!
     var searchWord: String?
     var debounceTimer: Timer?
     
-    //MARK: FaceId
-    var faceIdService: FaceIdService!
-    var session: AVCaptureSession?
-    var scannedImage: UIImage!
-    lazy var previewLayer: AVCaptureVideoPreviewLayer? = {
-        var previewLay = AVCaptureVideoPreviewLayer(session: self.session!)
-        previewLay.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        
-        return previewLay
-    }()
-    lazy var frontCamera: AVCaptureDevice? = {
-        guard let devices = AVCaptureDevice.devices(for: AVMediaType.video) as? [AVCaptureDevice] else { return nil }
-        
-        return devices.filter { $0.position == .front }.first
-    }()
+    //FaceId
+    var faceIdService = FaceIdService()
+    var faceRecView: FaceRecView!
     
-    let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: [CIDetectorAccuracy : CIDetectorAccuracyLow])
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        faceIdService = FaceIdService()
         setupNavbar()
         setupSearchBar()
+        setupFaceRecView()
         setupCollectionView()
         setupCheckoutButton()
+        loadMenu()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setupNotificationObservers()
+        updateUIWithCart()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        removeNotificationObservers()
+    }
+    
+    //MARK: Data Populating Methods
+    
+    func refresh() {
+        updateUIWithCart()
+        loadMenu()
+        loadSuggestedMenuItems()
+    }
+    
+    func loadMenu() {
         firstly {
             return Restaurant.getMenuItems(restaurantId: restaurant.restaurantId!)
         }.then { retrievedItems -> Void in
@@ -66,20 +77,31 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
                 }
             }
             self.filteredCategoryToMenuItem = self.categoryToMenuItem
-            
+        
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
+        }.catch(policy: .allErrors) { error in
+            log.error(error.localizedDescription)
         }
-        
-        
-        //Camera
-        sessionPrepare()
-        session?.startRunning()
-        
+    }
+    
+    func loadSuggestedMenuItems() {
+        guard let currUserId = InstantLocalStore.getCurrUserId() else { return }
+        firstly {
+            return Restaurant.getMenuSuggestions(userId: currUserId, restaurantId: restaurant.restaurantId!)
+        }.then { suggestedItems -> Void in
+            self.categoryToMenuItem["Suggestions"] = suggestedItems
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }.catch(policy: .allErrors) { error in
+            log.error(error.localizedDescription)
+        }
     }
     
     
+    // MARK: User Auth Handlers
     
     func setupNotificationObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(handle(notification:)), name: NotificationTable.userSignedIn, object: nil)
@@ -101,76 +123,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
     
-    func refresh() {
-        //refresh suggestions & cart
-        
-        updateUIWithCart()
-        loadSuggestedMenuItems()
-        
-    }
-    
-    func loadSuggestedMenuItems() {
-        guard let currUserId = InstantLocalStore.getCurrUserId() else { return }
-        firstly {
-            return Restaurant.getMenuSuggestions(userId: currUserId, restaurantId: restaurant.restaurantId!)
-        }.then { suggestedItems -> Void in
-            self.categoryToMenuItem["Suggestions"] = suggestedItems
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
-    }
-    
-    
-    
-    //camera
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        previewLayer?.frame = CGRect(x: 0, y: 10, width: view.frame.width, height: view.frame.height/2)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        guard let previewLayer = previewLayer else { return }
-        view.layer.addSublayer(previewLayer)
-    }
-    
-    func sessionPrepare() {
-        session = AVCaptureSession()
-        
-        guard let session = session, let captureDevice = frontCamera else { return }
-        
-        session.sessionPreset = AVCaptureSession.Preset.photo
-        
-        do {
-            let deviceInput = try AVCaptureDeviceInput(device: captureDevice)
-            session.beginConfiguration()
-            
-            if session.canAddInput(deviceInput) {
-                session.addInput(deviceInput)
-            }
-            
-            let output = AVCaptureVideoDataOutput()
-            output.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String : NSNumber(value: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)]
-            
-            output.alwaysDiscardsLateVideoFrames = true
-            
-            if session.canAddOutput(output) {
-                session.addOutput(output)
-            }
-            
-            session.commitConfiguration()
-            
-            let queue = DispatchQueue(label: "output.queue")
-            output.setSampleBufferDelegate(self, queue: queue)
-            print("This delegate is set! \(output.sampleBufferDelegate)")
-            
-        } catch {
-            print("error with creating AVCaptureDeviceInput")
-        }
-    }
+    // MARK: UI Setup Methods
     
     func setupNavbar() {
         navigationController?.isNavigationBarHidden = false
@@ -180,67 +133,10 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         navigationController?.navigationBar.barTintColor = .white
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        setupNotificationObservers()
-        updateUIWithCart()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        removeNotificationObservers()
-    }
-    
-    func updateUIWithCart() {
-        if let order = InstantLocalStore.getCurrOrder(atRestaurantId: restaurant.restaurantId!) {
-            if order.getNumMenuItems() > 0 {
-                numLabel.text = String(order.getNumMenuItems())
-                checkoutButton.isHidden = false
-            } else {
-                numLabel.text = "0"
-                checkoutButton.isHidden = true
-            }
-        } else {
-            numLabel.text = "0"
-            checkoutButton.isHidden = true
-        }
-    }
-    
-    func addToCart(item: MenuItem, quantity: Int, withOptions: [Option]) {
-        var order: Order!
-        if let currOrder = InstantLocalStore.getCurrOrder(atRestaurantId: restaurant.restaurantId!) {
-            order = currOrder
-        } else {
-            order = Order(items: [], restaurantId: item.restaurantId!)
-        }
-        let orderItem = OrderItem(menuItemId: item.menuItemId!, menuItemName: item.title!, quantity: quantity, menuItemPrice: item.price!)
-        order.addItem(item: orderItem)
-        InstantLocalStore.saveCurrOrder(order: order)
-    }
-    
-    func updateUIAfterAddToCart() {
-        let statusView = StatusView()
-        statusView.alpha = 0
-        statusView.show(inView: (navigationController?.view)!)
-        
-        SpringAnimation.springWithCompletion(duration: 0.5, animations: { 
-            if self.itemDetailView != nil {
-                self.itemDetailView.frame = statusView.frame
-            }
-        }, completion: { _ in
-            self.modalView.dismiss()
-            statusView.alpha = 1
-            statusView.displayMessage(text: "Added to Cart!")
-            statusView.hideAfter(delay: 0.65, completion: nil)
-            if self.checkoutButton.isHidden {
-                self.checkoutButton.frame.origin.y = self.view.frame.height
-                self.checkoutButton.isHidden = false
-                SpringAnimation.springEaseIn(duration: 0.3, animations: { 
-                    self.checkoutButton.frame.origin.y = self.view.frame.height - self.checkoutButton.frame.height
-                })
-            }
-            self.updateUIWithCart()
-        })
+    func setupFaceRecView() {
+        faceRecView = FaceRecView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/2))
+        faceRecView.delegate = self
+        view.addSubview(faceRecView)
     }
     
     func setupSearchBar() {
@@ -292,10 +188,6 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         updateUIWithCart()
     }
     
-    @objc func toCheckout() {
-        performSegue(withIdentifier: "toCheckout", sender: self)
-    }
-    
     func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
@@ -308,6 +200,90 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         collectionView.backgroundColor = .clear
         view.addSubview(collectionView)
     }
+    
+    // MARK: Update UI Methods
+    
+    func updateUIWithCart() {
+        if let order = InstantLocalStore.getCurrOrder(atRestaurantId: restaurant.restaurantId!) {
+            if order.getNumMenuItems() > 0 {
+                numLabel.text = String(order.getNumMenuItems())
+                checkoutButton.isHidden = false
+            } else {
+                numLabel.text = "0"
+                checkoutButton.isHidden = true
+            }
+        } else {
+            numLabel.text = "0"
+            checkoutButton.isHidden = true
+        }
+    }
+    
+    func updateUIAfterAddToCart() {
+        let statusView = StatusView()
+        statusView.alpha = 0
+        statusView.show(inView: (navigationController?.view)!)
+        
+        SpringAnimation.springWithCompletion(duration: 0.5, animations: { 
+            if self.itemDetailView != nil {
+                self.itemDetailView.frame = statusView.frame
+            }
+        }, completion: { _ in
+            self.modalView.dismiss()
+            statusView.alpha = 1
+            statusView.displayMessage(text: "Added to Cart!")
+            statusView.hideAfter(delay: 0.65, completion: nil)
+            if self.checkoutButton.isHidden {
+                self.checkoutButton.frame.origin.y = self.view.frame.height
+                self.checkoutButton.isHidden = false
+                SpringAnimation.springEaseIn(duration: 0.3, animations: { 
+                    self.checkoutButton.frame.origin.y = self.view.frame.height - self.checkoutButton.frame.height
+                })
+            }
+            self.updateUIWithCart()
+        })
+    }
+    
+    func showItemDetailView(forItem: MenuItem) {
+        let navBarHeight = navigationController?.navigationBar.frame.height
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        var mode: MenuItemDetailViewMode = .add
+        itemDetailView = MenuItemDetailView(frame: CGRect(x: 15, y: 70, width: view.frame.width - 30, height: view.frame.height - 75 - (110 - navBarHeight! - statusBarHeight)), item: forItem, mode: mode)
+        itemDetailView.delegate = self
+        modalView = ModalView(view: itemDetailView)
+        modalView.dismissAnimation = .FadeOut
+        navigationController?.view.addSubview(modalView)
+        modalView.show()
+    }
+    
+    //MARK: Segue Methods
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCheckout" {
+            let navVC = segue.destination as! UINavigationController
+            let destVC = navVC.topViewController as! CheckoutViewController
+            destVC.restaurant = restaurant
+        }
+    }
+    
+    @objc func toCheckout() {
+        performSegue(withIdentifier: "toCheckout", sender: self)
+    }
+    
+    
+    //MARK: Other Methods
+    
+    func addToCart(item: MenuItem, quantity: Int, withOptions: [Option]) {
+        var order: Order!
+        if let currOrder = InstantLocalStore.getCurrOrder(atRestaurantId: restaurant.restaurantId!) {
+            order = currOrder
+        } else {
+            order = Order(items: [], restaurantId: item.restaurantId!)
+        }
+        let orderItem = OrderItem(menuItemId: item.menuItemId!, menuItemName: item.title!, quantity: quantity, menuItemPrice: item.price!)
+        order.addItem(item: orderItem)
+        InstantLocalStore.saveCurrOrder(order: order)
+    }
+  
     
     @objc func searchMenu() {
         filteredCategoryToMenuItem = [String: [MenuItem]]()
@@ -330,85 +306,10 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
         collectionView.reloadData()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toCheckout" {
-            let navVC = segue.destination as! UINavigationController
-            let destVC = navVC.topViewController as! CheckoutViewController
-            destVC.restaurant = restaurant
-        }
-    }
-
-    func showItemDetailView(forItem: MenuItem) {
-        let navBarHeight = navigationController?.navigationBar.frame.height
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        var mode: MenuItemDetailViewMode = .add
-        itemDetailView = MenuItemDetailView(frame: CGRect(x: 15, y: 70, width: view.frame.width - 30, height: view.frame.height - 75 - (110 - navBarHeight! - statusBarHeight)), item: forItem, mode: mode)
-        itemDetailView.delegate = self
-        modalView = ModalView(view: itemDetailView)
-        modalView.dismissAnimation = .FadeOut
-        navigationController?.view.addSubview(modalView)
-        modalView.show()
-    }
-    
 
 }
 
-extension MenuViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-
-        let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
-        let attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, sampleBuffer, kCMAttachmentMode_ShouldPropagate)
-        let ciImage = CIImage(cvImageBuffer: pixelBuffer!, options: attachments as! [String : Any]?)
-        let options: [String : Any] = [CIDetectorImageOrientation: calculateOrientation(orientation: UIDevice.current.orientation),
-                                       CIDetectorSmile: true,
-                                       CIDetectorEyeBlink: true]
-        let allFeatures = faceDetector?.features(in: ciImage, options: options)
-        
-        let formatDescription = CMSampleBufferGetFormatDescription(sampleBuffer)
-        _ = CMVideoFormatDescriptionGetCleanAperture(formatDescription!, false)
-        
-        guard let features = allFeatures else { return }
-        
-        for feature in features {
-            if feature is CIFaceFeature {
-//                let inMiddleHorizontal = UIScreen.main.bounds.width * 0.25 <= feature.bounds.minX && feature.bounds.maxX <= UIScreen.main.bounds.width * 2
-//                let inMiddleVertical = UIScreen.main.bounds.height * 0.25 <= feature.bounds.minY && feature.bounds.maxY <= UIScreen.main.bounds.height * 0.80
-                DispatchQueue.main.async {
-                    guard let cgImage = CIContext(options: nil).createCGImage(ciImage, from: ciImage.extent) else {
-                        log.info("Could not convert image")
-                        return
-                    }
-                    self.scannedImage = UIImage(cgImage: cgImage)
-                    
-                    self.faceIdService.handle(image: self.scannedImage)
-//                    if inMiddleVertical && inMiddleHorizontal {
-//                        self.scannedImage = UIImage(ciImage: ciImage)
-//                        print("got image here")
-////                        self.faceIdService.handle(image: self.scannedImage)
-//                    }
-                }
-                
-            }
-        }
-        
-    }
-    
-    
-    
-    func calculateOrientation(orientation: UIDeviceOrientation) -> Int {
-        switch orientation {
-        case .portraitUpsideDown:
-            return 8
-        case .landscapeLeft:
-            return 3
-        case .landscapeRight:
-            return 1
-        default:
-            return 6
-        }
-    }
-    
-}
+//MARK: Search Delegate Methods
 
 extension MenuViewController: UISearchBarDelegate, UITextFieldDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -461,6 +362,8 @@ extension MenuViewController: UISearchBarDelegate, UITextFieldDelegate {
     
 }
 
+// MARK: CollectionView Delegate Methods
+
 extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -492,9 +395,11 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.priceLabel.text = InstantUtils.doubleToCurrencyString(val: (item?.price)!)
         
         firstly {
-            return (item?.getImage())!
-            }.then { img -> Void in
-                cell.foodImageView.image = img
+            return item!.getImage()
+        }.then { img -> Void in
+            cell.foodImageView.image = img
+        }.catch(policy: .allErrors) { error in
+            log.error(error.localizedDescription)
         }
         
     }
@@ -541,6 +446,8 @@ extension MenuViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
+//MARK: MenuItemDetailView Delegate Methods
+
 extension MenuViewController: MenuItemDetailViewDelegate {
     
     func dismissMenuItemDetailView() {
@@ -554,5 +461,13 @@ extension MenuViewController: MenuItemDetailViewDelegate {
     
     func updateCart(item: MenuItem, newQuantity: Int) {
         //Do nothing
+    }
+}
+
+//MARK: FaceRecView Delegate Methods
+
+extension MenuViewController: FaceRecViewDelegate {
+    func handleNewImage(image: UIImage) {
+        faceIdService.handle(image: image)
     }
 }

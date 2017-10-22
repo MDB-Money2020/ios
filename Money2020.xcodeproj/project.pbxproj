@@ -22,6 +22,7 @@
 		1626D8F71F9C76FF00E99ADE /* FaceIdHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D8F61F9C76FF00E99ADE /* FaceIdHelper.swift */; };
 		1626D8F91F9C7D0300E99ADE /* FaceIdService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D8F81F9C7D0300E99ADE /* FaceIdService.swift */; };
 		1626D8FB1F9C7D2200E99ADE /* NotificationTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D8FA1F9C7D2200E99ADE /* NotificationTable.swift */; };
+		1626D8FD1F9C972100E99ADE /* FaceRecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626D8FC1F9C972100E99ADE /* FaceRecView.swift */; };
 		1674C13B1F9C3C3600F97573 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1674C13A1F9C3C3600F97573 /* StatusView.swift */; };
 		167E02411EF8EAF12967D0D2 /* Pods_Money2020Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385FD2FF7EEBC3AB81CBCA9A /* Pods_Money2020Tests.framework */; };
 		16845C3C1F9BC4EE00CFD379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16845C3B1F9BC4EE00CFD379 /* AppDelegate.swift */; };
@@ -88,6 +89,7 @@
 		1626D8F61F9C76FF00E99ADE /* FaceIdHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIdHelper.swift; sourceTree = "<group>"; };
 		1626D8F81F9C7D0300E99ADE /* FaceIdService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIdService.swift; sourceTree = "<group>"; };
 		1626D8FA1F9C7D2200E99ADE /* NotificationTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTable.swift; sourceTree = "<group>"; };
+		1626D8FC1F9C972100E99ADE /* FaceRecView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRecView.swift; sourceTree = "<group>"; };
 		1674C13A1F9C3C3600F97573 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		16845C381F9BC4EE00CFD379 /* Money2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money2020.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16845C3B1F9BC4EE00CFD379 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				169FF6D51F9C19E200048765 /* MenuViewController.swift */,
 				169FF6D91F9C1AAC00048765 /* MenuItemCollectionViewCell.swift */,
 				16AEF8891F9C38DA002A8E99 /* MenuHeaderCollectionReusableView.swift */,
+				1626D8FC1F9C972100E99ADE /* FaceRecView.swift */,
 			);
 			path = MenuViewController;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1626D8FD1F9C972100E99ADE /* FaceRecView.swift in Sources */,
 				16845C901F9BF46200CFD379 /* DateTransform.swift in Sources */,
 				1616E1161F9C579400B2943D /* CheckoutCardTableViewCell.swift in Sources */,
 				16845C791F9BC9AE00CFD379 /* Order.swift in Sources */,
