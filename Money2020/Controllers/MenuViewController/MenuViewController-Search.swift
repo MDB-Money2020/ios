@@ -15,7 +15,7 @@ extension MenuViewController {
     func setupSearchBar() {
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let navBarHeight = navigationController?.navigationBar.frame.height
-        headerView = UIView(frame: CGRect(x: -1, y: view.frame.height/3, width: view.frame.width + 2, height: 45))
+        headerView = UIView(frame: CGRect(x: -1, y: view.frame.height/3, width: view.frame.width + 2, height: 0))
         headerView.layer.borderColor = UIColor(hex: "#EEEFF0").cgColor
         headerView.layer.borderWidth = 0.8
         headerView.backgroundColor = .white

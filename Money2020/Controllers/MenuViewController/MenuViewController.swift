@@ -133,6 +133,7 @@ class MenuViewController: UIViewController, UINavigationControllerDelegate {
                 if user.userId != nil && user.userId != InstantLocalStore.getCurrUserId() {
                     InstantLocalStore.clearCurrOrder(atRestaurantId: "-Kx0rrVSISYN1ZmefG8_")
                     InstantLocalStore.setCurrUserId(userId: user.userId!)
+                    faceRecView.textLabel.text = "Welcome \(user.fullName!)"
                     refresh()
                 }
             }

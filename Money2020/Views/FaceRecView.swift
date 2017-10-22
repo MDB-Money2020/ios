@@ -32,18 +32,38 @@ class FaceRecView: UIView {
     let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: [CIDetectorAccuracy : CIDetectorAccuracyLow])
     var delegate: FaceRecViewDelegate?
     
+    var overlay: UIView!
+    var textLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         sessionPrepare()
         session?.startRunning()
-        previewLayer?.frame = CGRect(x: 0, y: 10, width: frame.width, height: frame.height)
+        previewLayer?.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        
     }
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         guard let previewLayer = previewLayer else { return }
         layer.addSublayer(previewLayer)
+        setupOverlay()
+    }
+    
+    func setupOverlay() {
+        overlay = UIView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        overlay.backgroundColor = .black
+        overlay.alpha = 0.5
+        addSubview(overlay)
+        
+        textLabel = UILabel(frame: CGRect(x: 100, y: (overlay.frame.height - 150)/2, width: overlay.frame.width - 200, height: 150))
+        textLabel.textAlignment = .center
+        textLabel.textColor = .white
+        textLabel.numberOfLines = 0
+        textLabel.lineBreakMode = .byWordWrapping
+        textLabel.font = UIFont(name: "SFUIText-Regular", size: 30)
+        textLabel.text = "Detecting face..."
+        overlay.addSubview(textLabel)
     }
     
     required init?(coder aDecoder: NSCoder) {

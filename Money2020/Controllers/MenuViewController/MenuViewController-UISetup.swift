@@ -14,7 +14,7 @@ extension MenuViewController {
     // MARK: UI Setup Methods
     
     func setupNavbar() {
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = true
         navigationItem.title = "Menu"
         navigationController?.navigationBar.tintColor = UIColor(hex: "#494949")
         navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "SFUIText-Regular", size: 17)!]
